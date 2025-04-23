@@ -13,6 +13,18 @@
       "PackagePath": "staticwebassets/favicon.ico"
     },
     {
+      "Id": "/Users/marekdadej/Desktop/PunktWeterynaryjny/wwwroot/img/lekarz.png",
+      "PackagePath": "staticwebassets/img/lekarz.png"
+    },
+    {
+      "Id": "/Users/marekdadej/Desktop/PunktWeterynaryjny/wwwroot/img/logo_male.png",
+      "PackagePath": "staticwebassets/img/logo_male.png"
+    },
+    {
+      "Id": "/Users/marekdadej/Desktop/PunktWeterynaryjny/wwwroot/img/logo_strony.png",
+      "PackagePath": "staticwebassets/img/logo_strony.png"
+    },
+    {
       "Id": "/Users/marekdadej/Desktop/PunktWeterynaryjny/wwwroot/js/site.js",
       "PackagePath": "staticwebassets/js/site.js"
     },
@@ -227,6 +239,10 @@
     {
       "Id": "/Users/marekdadej/Desktop/PunktWeterynaryjny/wwwroot/lib/jquery-validation/dist/jquery.validate.min.js",
       "PackagePath": "staticwebassets/lib/jquery-validation/dist/jquery.validate.min.js"
+    },
+    {
+      "Id": "/Users/marekdadej/Desktop/PunktWeterynaryjny/wwwroot/lib/jquery-validation/dist/localization/messages_pl.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/localization/messages_pl.js"
     },
     {
       "Id": "/Users/marekdadej/Desktop/PunktWeterynaryjny/wwwroot/lib/jquery/LICENSE.txt",

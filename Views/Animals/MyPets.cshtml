@@ -1,0 +1,33 @@
+@model IEnumerable<PunktWeterynaryjny.Models.Animal>
+
+@{
+    ViewData["Title"] = "Moje zwierzęta";
+}
+
+<h2>Moje zwierzęta</h2>
+
+<p>
+    <a class="btn btn-success" asp-action="Add">Dodaj nowego pupila</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Imię</th>
+            <th>Gatunek</th>
+            <th>Rasa</th>
+            <th>Data urodzenia</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var animal in Model)
+    {
+        <tr>
+            <td>@animal.Name</td>
+            <td>@animal.Species</td>
+            <td>@animal.Breed</td>
+            <td>@animal.BirthDate.ToShortDateString()</td>
+        </tr>
+    }
+    </tbody>
+</table>

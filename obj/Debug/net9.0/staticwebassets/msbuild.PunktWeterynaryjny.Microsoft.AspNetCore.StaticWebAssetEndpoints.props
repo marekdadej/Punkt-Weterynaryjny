@@ -1,16 +1,16 @@
 ﻿<Project>
   <ItemGroup>
-    <StaticWebAssetEndpoint Include="_content/PunktWeterynaryjny/css/site.b9sayid5wm.css">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"b9sayid5wm"},{"Name":"integrity","Value":"sha256-j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg="},{"Name":"label","Value":"_content/PunktWeterynaryjny/css/site.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"667"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg=\u0022"},{"Name":"Last-Modified","Value":"Wed, 23 Apr 2025 14:54:50 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/PunktWeterynaryjny/css/site.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"667"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg=\u0022"},{"Name":"Last-Modified","Value":"Wed, 23 Apr 2025 14:54:50 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-AJih\u002BpwFZwNp2JH4zye9BjT8Em9\u002BnlZmc0gm2/WdIJQ="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1454"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022AJih\u002BpwFZwNp2JH4zye9BjT8Em9\u002BnlZmc0gm2/WdIJQ=\u0022"},{"Name":"Last-Modified","Value":"Wed, 23 Apr 2025 16:35:33 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/PunktWeterynaryjny/css/site.k3ogaoxw1z.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"k3ogaoxw1z"},{"Name":"integrity","Value":"sha256-AJih\u002BpwFZwNp2JH4zye9BjT8Em9\u002BnlZmc0gm2/WdIJQ="},{"Name":"label","Value":"_content/PunktWeterynaryjny/css/site.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1454"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022AJih\u002BpwFZwNp2JH4zye9BjT8Em9\u002BnlZmc0gm2/WdIJQ=\u0022"},{"Name":"Last-Modified","Value":"Wed, 23 Apr 2025 16:35:33 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/PunktWeterynaryjny/favicon.61n19gt1b8.ico">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\favicon.ico'))</AssetFile>
@@ -23,6 +23,42 @@
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-Jtxf9L\u002B5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"5430"},{"Name":"Content-Type","Value":"image/x-icon"},{"Name":"ETag","Value":"\u0022Jtxf9L\u002B5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM=\u0022"},{"Name":"Last-Modified","Value":"Wed, 23 Apr 2025 14:54:50 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/PunktWeterynaryjny/img/lekarz.kt2d4aw33e.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\img\lekarz.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"kt2d4aw33e"},{"Name":"integrity","Value":"sha256-eATeVeLbOSbDSd\u002BH8n\u002B/2/KcMeve8kpGGo247F39nNo="},{"Name":"label","Value":"_content/PunktWeterynaryjny/img/lekarz.png"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"2444664"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022eATeVeLbOSbDSd\u002BH8n\u002B/2/KcMeve8kpGGo247F39nNo=\u0022"},{"Name":"Last-Modified","Value":"Wed, 23 Apr 2025 16:26:14 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/PunktWeterynaryjny/img/lekarz.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\img\lekarz.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-eATeVeLbOSbDSd\u002BH8n\u002B/2/KcMeve8kpGGo247F39nNo="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"2444664"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022eATeVeLbOSbDSd\u002BH8n\u002B/2/KcMeve8kpGGo247F39nNo=\u0022"},{"Name":"Last-Modified","Value":"Wed, 23 Apr 2025 16:26:14 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/PunktWeterynaryjny/img/logo_male.gcqlqc63la.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\img\logo_male.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"gcqlqc63la"},{"Name":"integrity","Value":"sha256-oKILlItwUlNnoeveiwFRdOyUHaOcuV8LGDZ0jXzW2cM="},{"Name":"label","Value":"_content/PunktWeterynaryjny/img/logo_male.png"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"288127"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022oKILlItwUlNnoeveiwFRdOyUHaOcuV8LGDZ0jXzW2cM=\u0022"},{"Name":"Last-Modified","Value":"Wed, 23 Apr 2025 16:26:14 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/PunktWeterynaryjny/img/logo_male.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\img\logo_male.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-oKILlItwUlNnoeveiwFRdOyUHaOcuV8LGDZ0jXzW2cM="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"288127"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022oKILlItwUlNnoeveiwFRdOyUHaOcuV8LGDZ0jXzW2cM=\u0022"},{"Name":"Last-Modified","Value":"Wed, 23 Apr 2025 16:26:14 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/PunktWeterynaryjny/img/logo_strony.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\img\logo_strony.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-BVWt7jqxEePMP0s7GRFcjMFSwTnyh9A9NO4Sf16I3Ls="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"237433"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022BVWt7jqxEePMP0s7GRFcjMFSwTnyh9A9NO4Sf16I3Ls=\u0022"},{"Name":"Last-Modified","Value":"Wed, 23 Apr 2025 16:26:14 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/PunktWeterynaryjny/img/logo_strony.z6gkwv6j52.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\img\logo_strony.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"z6gkwv6j52"},{"Name":"integrity","Value":"sha256-BVWt7jqxEePMP0s7GRFcjMFSwTnyh9A9NO4Sf16I3Ls="},{"Name":"label","Value":"_content/PunktWeterynaryjny/img/logo_strony.png"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"237433"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022BVWt7jqxEePMP0s7GRFcjMFSwTnyh9A9NO4Sf16I3Ls=\u0022"},{"Name":"Last-Modified","Value":"Wed, 23 Apr 2025 16:26:14 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/PunktWeterynaryjny/js/site.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\site.js'))</AssetFile>
@@ -659,6 +695,18 @@
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-umbTaFxP31Fv6O1itpLS/3\u002Bv5fOAWDLOUzlmvOGaKV4="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"25308"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022umbTaFxP31Fv6O1itpLS/3\u002Bv5fOAWDLOUzlmvOGaKV4=\u0022"},{"Name":"Last-Modified","Value":"Wed, 23 Apr 2025 14:54:50 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/PunktWeterynaryjny/lib/jquery-validation/dist/localization/messages_pl.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\lib\jquery-validation\dist\localization\messages_pl.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-lK\u002BhHAzZxJcNoi\u002BPK6Q7q/jmj/wPec0xiLqp/Rc53Mc="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1464"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022lK\u002BhHAzZxJcNoi\u002BPK6Q7q/jmj/wPec0xiLqp/Rc53Mc=\u0022"},{"Name":"Last-Modified","Value":"Wed, 23 Apr 2025 17:29:47 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/PunktWeterynaryjny/lib/jquery-validation/dist/localization/messages_pl.ozlxep3vm7.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\lib\jquery-validation\dist\localization\messages_pl.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"ozlxep3vm7"},{"Name":"integrity","Value":"sha256-lK\u002BhHAzZxJcNoi\u002BPK6Q7q/jmj/wPec0xiLqp/Rc53Mc="},{"Name":"label","Value":"_content/PunktWeterynaryjny/lib/jquery-validation/dist/localization/messages_pl.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1464"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022lK\u002BhHAzZxJcNoi\u002BPK6Q7q/jmj/wPec0xiLqp/Rc53Mc=\u0022"},{"Name":"Last-Modified","Value":"Wed, 23 Apr 2025 17:29:47 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/PunktWeterynaryjny/lib/jquery-validation/LICENSE.md">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\lib\jquery-validation\LICENSE.md'))</AssetFile>

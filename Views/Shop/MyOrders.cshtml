@@ -1,0 +1,37 @@
+@model IEnumerable<PunktWeterynaryjny.Models.OrderViewModel>
+@using PunktWeterynaryjny.Models
+@{
+    ViewData["Title"] = "Moje zamówienia";
+}
+
+<h2>Moje zamówienia</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Numer zamówienia</th>
+            <th>Data złożenia</th>
+            <th>Status</th>
+            <th>Akcje</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model)
+        {
+            <tr>
+                <td>@order.OrderId</td>
+                <td>@order.OrderDate.ToShortDateString()</td>
+                <td>@order.Status</td>
+                <td>
+                    @if (order.Status == OrderStatus.Przyjęte)
+                    {
+                        <form asp-action="CancelOrder" asp-route-id="@order.OrderId" method="post" style="display:inline;">
+                            <button type="submit" class="btn btn-danger btn-sm">Anuluj</button>
+                        </form>
+                    }
+                    <a asp-action="OrderDetails" asp-route-id="@order.OrderId" class="btn btn-info btn-sm">Szczegóły</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

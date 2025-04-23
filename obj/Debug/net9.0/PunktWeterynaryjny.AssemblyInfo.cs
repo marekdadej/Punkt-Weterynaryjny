@@ -10,10 +10,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.AspNetCore.Identity.UI.UIFrameworkAttribute("Bootstrap5")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("PunktWeterynaryjny")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ff09f6373d804803da0d6b9d550df34e85949b76")]
 [assembly: System.Reflection.AssemblyProductAttribute("PunktWeterynaryjny")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PunktWeterynaryjny")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
