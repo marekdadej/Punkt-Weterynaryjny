@@ -16,5 +16,6 @@ namespace PunktWeterynaryjny.Data
         public DbSet<Animal> Animals { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
+        public DbSet<Visit> Visits { get; set; }  
     }
 }

@@ -2,13 +2,47 @@
     ViewData["Title"] = "Strona Główna";
 }
 
-<section class="hero">
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success text-center mt-3" role="alert">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+@if (User.Identity?.IsAuthenticated ?? false)
+{
+    <p class="text-success text-center">Jesteś zalogowany jako: @User.Identity.Name</p>
+}
+
+<section class="hero text-center mt-4">
     <h1>Witamy w Punkcie Weterynaryjnym!</h1>
     <p>Zapewniamy profesjonalną opiekę zdrowotną dla Twoich pupili i zwierząt hodowlanych.</p>
-    <div class="actions">
-        <a class="btn" href="/Account/Login">Zaloguj się</a>
-        <a class="btn" href="/Account/Register">Zarejestruj się</a>
-        <a class="btn" href="/Shop/Index">Kup leki</a>
-        <a class="btn" href="/Home/Kontakt">Kontakt</a>
+
+    <div class="actions mt-4">
+        @if (!(User.Identity?.IsAuthenticated ?? false))
+        {
+            <!-- Niezalogowany użytkownik -->
+            <a class="btn btn-primary m-2" href="/Account/Login">Zaloguj się</a>
+            <a class="btn btn-secondary m-2" href="/Account/Register">Zarejestruj się</a>
+            <a class="btn btn-success m-2" href="/Shop/Index">Kup leki</a>
+            <a class="btn btn-info m-2" href="/Home/Kontakt">Kontakt</a>
+        }
+        else if (User.IsInRole("Pracownik"))
+        {
+            <!-- Zalogowany pracownik -->
+            <a class="btn btn-primary m-2" href="/Animals/Index">Ewidencja zwierząt</a>
+            <a class="btn btn-warning m-2" href="/Orders/Manage">Zarządzanie zamówieniami</a>
+            <a class="btn btn-info m-2" href="/Home/Kontakt">Kontakt</a>
+        }
+        else
+        {
+            <!-- Zalogowany zwykły użytkownik -->
+            <a class="btn btn-primary m-2" href="/Animals/MyPets">Moje zwierzęta</a>
+            <a class="btn btn-secondary m-2" href="/Visits/Schedule">Umów wizytę</a>
+            <a class="btn btn-secondary m-2" href="/Visits/ScheduleTravel">Umów wizytę wyjazdową</a>
+            <a class="btn btn-secondary m-2" href="/Visits/PlanResearch">Plan badań</a>
+            <a class="btn btn-success m-2" href="/Shop/MyOrders">Moje zamówienia</a>
+            <a class="btn btn-info m-2" href="/Home/Kontakt">Kontakt</a>
+        }
     </div>
 </section>

@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using PunktWeterynaryjny.Data;
+using Microsoft.Extensions.Logging;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,13 +35,15 @@ app.MapControllerRoute(
 
 app.MapRazorPages();
 
-// SEED ROLI I UŻYTKOWNIKA
+// Tutaj dodajesz logger:
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
     var userManager = services.GetRequiredService<UserManager<IdentityUser>>();
     var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
-    await SeedData.InitializeAsync(userManager, roleManager);
+    var logger = services.GetRequiredService<ILogger<Program>>();
+
+    await SeedData.InitializeAsync(userManager, roleManager, logger);
 }
 
 app.Run();
