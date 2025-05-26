@@ -7,7 +7,7 @@ namespace PunktWeterynaryjny.Models
     public enum VisitStatus
     {
         Zarejestrowana,
-        WRealizacji,
+        W_Realizacji,
         Zakończona,
         Anulowana
     }
@@ -16,18 +16,26 @@ namespace PunktWeterynaryjny.Models
     {
         public int Id { get; set; }
 
-        [Required]
         public string UserId { get; set; } = string.Empty;
-        public IdentityUser User { get; set; } = null!;
+        public IdentityUser? User { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Wybierz zwierzaka.")]
+        [Display(Name = "Zwierzak")]
         public int PetId { get; set; }
-        public Animal Pet { get; set; } = null!;
+        public Animal? Pet { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Podaj datę wizyty.")]
+        [Display(Name = "Data wizyty")]
         public DateTime VisitDate { get; set; }
 
+        [Display(Name = "Opis wizyty")]
         public string? Description { get; set; }
+
+        [Display(Name = "Czy to wizyta wyjazdowa?")]
+        public bool IsOutVisit { get; set; } = false;
+
+        [Display(Name = "Adres wizyty wyjazdowej")]
+        public string? OutVisitAddress { get; set; }
 
         public VisitStatus Status { get; set; }
     }

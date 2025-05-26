@@ -4,30 +4,61 @@
     ViewData["Title"] = "Moje zwierzęta";
 }
 
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success text-center">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info text-center">
+        Nie masz jeszcze żadnych pupili. <a asp-action="Add" class="alert-link">Dodaj pierwszego!</a>
+    </div>
+}
+
 <h2>Moje zwierzęta</h2>
 
-<p>
+<div class="mb-4 d-flex flex-wrap gap-2">
     <a class="btn btn-success" asp-action="Add">Dodaj nowego pupila</a>
-</p>
+    <a class="btn btn-primary" asp-controller="Visits" asp-action="Schedule">Umów wizytę</a>
+    <a class="btn btn-primary" asp-controller="Visits" asp-action="ScheduleOut">Umów wizytę wyjazdową</a>
+    <a class="btn btn-secondary" asp-controller="Visits" asp-action="MyVisits">Moje wizyty</a>
+</div>
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Imię</th>
-            <th>Gatunek</th>
-            <th>Rasa</th>
-            <th>Data urodzenia</th>
-        </tr>
-    </thead>
-    <tbody>
-    @foreach (var animal in Model)
-    {
-        <tr>
-            <td>@animal.Name</td>
-            <td>@animal.Species</td>
-            <td>@animal.Breed</td>
-            <td>@animal.BirthDate.ToShortDateString()</td>
-        </tr>
-    }
-    </tbody>
-</table>
+@if (Model.Any())
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Imię</th>
+                <th>Gatunek</th>
+                <th>Rasa</th>
+                <th>Data urodzenia</th>
+                <th>Akcje</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var animal in Model)
+        {
+            <tr>
+                <td>@animal.Name</td>
+                <td>@animal.Species</td>
+                <td>@animal.Breed</td>
+                <td>@animal.BirthDate.ToShortDateString()</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@animal.Id" class="btn btn-sm btn-primary me-1">Edytuj</a>
+                    <form asp-action="Delete" asp-route-id="@animal.Id" method="post" class="d-inline">
+                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Czy na pewno chcesz usunąć tego pupila?');">Usuń</button>
+                    </form>
+                    <a class="btn btn-sm btn-info me-1"
+                        asp-controller="TreatmentPlans"
+                        asp-action="Animal"
+                        asp-route-animalId="@animal.Id">Plan leczenia</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}

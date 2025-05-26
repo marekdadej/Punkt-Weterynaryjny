@@ -14,6 +14,7 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options =>
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.AddControllersWithViews();
+builder.Services.AddSession(); 
 
 var app = builder.Build();
 
@@ -26,6 +27,7 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
+app.UseSession(); 
 app.UseAuthentication();
 app.UseAuthorization();
 
@@ -35,7 +37,6 @@ app.MapControllerRoute(
 
 app.MapRazorPages();
 
-// Tutaj dodajesz logger:
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "+cn3ZsutkA+msXMG0DzR8CCYnOnzSO/5J48M7x/GujQ=",
+  "Hash": "7SC6sGHvmSIyB/7Bk6SbR7s4p8tpkh0eMeyHOlDwA1I=",
   "Source": "PunktWeterynaryjny",
   "BasePath": "_content/PunktWeterynaryjny",
   "Mode": "Default",
@@ -1424,12 +1424,12 @@
       "OriginalItemSpec": "/Users/marekdadej/.nuget/packages/microsoft.aspnetcore.identity.ui/9.0.4/staticwebassets/V5/lib/bootstrap/dist/css/bootstrap-grid.css"
     },
     {
-      "Identity": "/Users/marekdadej/Desktop/PunktWeterynaryjny/obj/Debug/net9.0/compressed/1e6nd54udc-k3ogaoxw1z.gz",
+      "Identity": "/Users/marekdadej/Desktop/PunktWeterynaryjny/obj/Debug/net9.0/compressed/1e6nd54udc-os3qv963hp.gz",
       "SourceId": "PunktWeterynaryjny",
       "SourceType": "Discovered",
       "ContentRoot": "/Users/marekdadej/Desktop/PunktWeterynaryjny/obj/Debug/net9.0/compressed/",
       "BasePath": "_content/PunktWeterynaryjny",
-      "RelativePath": "css/site#[.{fingerprint=k3ogaoxw1z}]?.css.gz",
+      "RelativePath": "css/site#[.{fingerprint=os3qv963hp}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -1438,8 +1438,8 @@
       "RelatedAsset": "/Users/marekdadej/Desktop/PunktWeterynaryjny/wwwroot/css/site.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "hrgwch80is",
-      "Integrity": "I/Plf8aUWJmhUNSUQkGBG240HW7CMxaFJNYReCOihHQ=",
+      "Fingerprint": "ub3q6s9xej",
+      "Integrity": "puZhK8wHHrbail4V7Ju2WZLGMOrDurk+3UI6ikKnkXU=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/Users/marekdadej/Desktop/PunktWeterynaryjny/wwwroot/css/site.css"
@@ -2768,12 +2768,12 @@
       "OriginalItemSpec": "/Users/marekdadej/Desktop/PunktWeterynaryjny/wwwroot/lib/jquery/LICENSE.txt"
     },
     {
-      "Identity": "/Users/marekdadej/Desktop/PunktWeterynaryjny/obj/Debug/net9.0/compressed/n4m2p8m9ay-z9j7edf0gq.gz",
+      "Identity": "/Users/marekdadej/Desktop/PunktWeterynaryjny/obj/Debug/net9.0/compressed/n4m2p8m9ay-f6p2y57eyx.gz",
       "SourceId": "PunktWeterynaryjny",
       "SourceType": "Computed",
       "ContentRoot": "/Users/marekdadej/Desktop/PunktWeterynaryjny/obj/Debug/net9.0/compressed/",
       "BasePath": "_content/PunktWeterynaryjny",
-      "RelativePath": "PunktWeterynaryjny#[.{fingerprint=z9j7edf0gq}]!.bundle.scp.css.gz",
+      "RelativePath": "PunktWeterynaryjny#[.{fingerprint=f6p2y57eyx}]!.bundle.scp.css.gz",
       "AssetKind": "All",
       "AssetMode": "Reference",
       "AssetRole": "Alternative",
@@ -2782,8 +2782,8 @@
       "RelatedAsset": "/Users/marekdadej/Desktop/PunktWeterynaryjny/obj/Debug/net9.0/scopedcss/projectbundle/PunktWeterynaryjny.bundle.scp.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "b5eog96yt7",
-      "Integrity": "nxGz3hhNkDQ0VUl3OMcqb04egiM9zA3RtwYqImmM0BA=",
+      "Fingerprint": "c36728c6nw",
+      "Integrity": "aENBgD084S3mAMABvQIGRcKVCC38VgBnPsqb6BlPkqg=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/Users/marekdadej/Desktop/PunktWeterynaryjny/obj/Debug/net9.0/scopedcss/projectbundle/PunktWeterynaryjny.bundle.scp.css"
@@ -2957,12 +2957,12 @@
       "OriginalItemSpec": "/Users/marekdadej/.nuget/packages/microsoft.aspnetcore.identity.ui/9.0.4/staticwebassets/V5/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css"
     },
     {
-      "Identity": "/Users/marekdadej/Desktop/PunktWeterynaryjny/obj/Debug/net9.0/compressed/oeo4jvtn0z-z9j7edf0gq.gz",
+      "Identity": "/Users/marekdadej/Desktop/PunktWeterynaryjny/obj/Debug/net9.0/compressed/oeo4jvtn0z-f6p2y57eyx.gz",
       "SourceId": "PunktWeterynaryjny",
       "SourceType": "Computed",
       "ContentRoot": "/Users/marekdadej/Desktop/PunktWeterynaryjny/obj/Debug/net9.0/compressed/",
       "BasePath": "_content/PunktWeterynaryjny",
-      "RelativePath": "PunktWeterynaryjny#[.{fingerprint=z9j7edf0gq}]?.styles.css.gz",
+      "RelativePath": "PunktWeterynaryjny#[.{fingerprint=f6p2y57eyx}]?.styles.css.gz",
       "AssetKind": "All",
       "AssetMode": "CurrentProject",
       "AssetRole": "Alternative",
@@ -2971,8 +2971,8 @@
       "RelatedAsset": "/Users/marekdadej/Desktop/PunktWeterynaryjny/obj/Debug/net9.0/scopedcss/bundle/PunktWeterynaryjny.styles.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "b5eog96yt7",
-      "Integrity": "nxGz3hhNkDQ0VUl3OMcqb04egiM9zA3RtwYqImmM0BA=",
+      "Fingerprint": "c36728c6nw",
+      "Integrity": "aENBgD084S3mAMABvQIGRcKVCC38VgBnPsqb6BlPkqg=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/Users/marekdadej/Desktop/PunktWeterynaryjny/obj/Debug/net9.0/scopedcss/bundle/PunktWeterynaryjny.styles.css"
@@ -4021,8 +4021,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ApplicationBundle",
-      "Fingerprint": "z9j7edf0gq",
-      "Integrity": "qZBfAOtZMJzFRjBRPa5Mr8THH3aAqjY27gWAvf3ZSNs=",
+      "Fingerprint": "f6p2y57eyx",
+      "Integrity": "93GFGXjDkJkB6Q9/jJ9xnMTM368MV9X7imOJV3czf1M=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/Users/marekdadej/Desktop/PunktWeterynaryjny/obj/Debug/net9.0/scopedcss/bundle/PunktWeterynaryjny.styles.css"
@@ -4042,8 +4042,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ProjectBundle",
-      "Fingerprint": "z9j7edf0gq",
-      "Integrity": "qZBfAOtZMJzFRjBRPa5Mr8THH3aAqjY27gWAvf3ZSNs=",
+      "Fingerprint": "f6p2y57eyx",
+      "Integrity": "93GFGXjDkJkB6Q9/jJ9xnMTM368MV9X7imOJV3czf1M=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/Users/marekdadej/Desktop/PunktWeterynaryjny/obj/Debug/net9.0/scopedcss/projectbundle/PunktWeterynaryjny.bundle.scp.css"
@@ -4063,8 +4063,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "k3ogaoxw1z",
-      "Integrity": "AJih+pwFZwNp2JH4zye9BjT8Em9+nlZmc0gm2/WdIJQ=",
+      "Fingerprint": "os3qv963hp",
+      "Integrity": "uPjmpTaoWKgPPhUE7RDbJcuWwR+FIm9VBygiJYaI6gs=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/css/site.css"
@@ -5496,12 +5496,12 @@
     },
     {
       "Route": "css/site.css",
-      "AssetFile": "/Users/marekdadej/Desktop/PunktWeterynaryjny/obj/Debug/net9.0/compressed/1e6nd54udc-k3ogaoxw1z.gz",
+      "AssetFile": "/Users/marekdadej/Desktop/PunktWeterynaryjny/obj/Debug/net9.0/compressed/1e6nd54udc-os3qv963hp.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.001828153565"
+          "Quality": "0.001189060642"
         }
       ],
       "ResponseHeaders": [
@@ -5511,15 +5511,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "546"
+          "Value": "840"
         },
         {
           "Name": "ETag",
-          "Value": "\"I/Plf8aUWJmhUNSUQkGBG240HW7CMxaFJNYReCOihHQ=\""
+          "Value": "\"puZhK8wHHrbail4V7Ju2WZLGMOrDurk+3UI6ikKnkXU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 23 Apr 2025 16:35:33 GMT"
+          "Value": "Fri, 23 May 2025 15:50:50 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5539,13 +5539,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"AJih+pwFZwNp2JH4zye9BjT8Em9+nlZmc0gm2/WdIJQ=\""
+          "Value": "W/\"uPjmpTaoWKgPPhUE7RDbJcuWwR+FIm9VBygiJYaI6gs=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-AJih+pwFZwNp2JH4zye9BjT8Em9+nlZmc0gm2/WdIJQ="
+          "Value": "sha256-uPjmpTaoWKgPPhUE7RDbJcuWwR+FIm9VBygiJYaI6gs="
         }
       ]
     },
@@ -5560,7 +5560,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1454"
+          "Value": "2516"
         },
         {
           "Name": "Content-Type",
@@ -5568,11 +5568,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"AJih+pwFZwNp2JH4zye9BjT8Em9+nlZmc0gm2/WdIJQ=\""
+          "Value": "\"uPjmpTaoWKgPPhUE7RDbJcuWwR+FIm9VBygiJYaI6gs=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 23 Apr 2025 16:35:33 GMT"
+          "Value": "Fri, 23 May 2025 15:50:50 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5582,13 +5582,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-AJih+pwFZwNp2JH4zye9BjT8Em9+nlZmc0gm2/WdIJQ="
+          "Value": "sha256-uPjmpTaoWKgPPhUE7RDbJcuWwR+FIm9VBygiJYaI6gs="
         }
       ]
     },
     {
       "Route": "css/site.css.gz",
-      "AssetFile": "/Users/marekdadej/Desktop/PunktWeterynaryjny/obj/Debug/net9.0/compressed/1e6nd54udc-k3ogaoxw1z.gz",
+      "AssetFile": "/Users/marekdadej/Desktop/PunktWeterynaryjny/obj/Debug/net9.0/compressed/1e6nd54udc-os3qv963hp.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5597,7 +5597,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "546"
+          "Value": "840"
         },
         {
           "Name": "Content-Type",
@@ -5605,11 +5605,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"I/Plf8aUWJmhUNSUQkGBG240HW7CMxaFJNYReCOihHQ=\""
+          "Value": "\"puZhK8wHHrbail4V7Ju2WZLGMOrDurk+3UI6ikKnkXU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 23 Apr 2025 16:35:33 GMT"
+          "Value": "Fri, 23 May 2025 15:50:50 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5627,18 +5627,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-I/Plf8aUWJmhUNSUQkGBG240HW7CMxaFJNYReCOihHQ="
+          "Value": "sha256-puZhK8wHHrbail4V7Ju2WZLGMOrDurk+3UI6ikKnkXU="
         }
       ]
     },
     {
-      "Route": "css/site.k3ogaoxw1z.css",
-      "AssetFile": "/Users/marekdadej/Desktop/PunktWeterynaryjny/obj/Debug/net9.0/compressed/1e6nd54udc-k3ogaoxw1z.gz",
+      "Route": "css/site.os3qv963hp.css",
+      "AssetFile": "/Users/marekdadej/Desktop/PunktWeterynaryjny/obj/Debug/net9.0/compressed/1e6nd54udc-os3qv963hp.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.001828153565"
+          "Quality": "0.001189060642"
         }
       ],
       "ResponseHeaders": [
@@ -5648,15 +5648,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "546"
+          "Value": "840"
         },
         {
           "Name": "ETag",
-          "Value": "\"I/Plf8aUWJmhUNSUQkGBG240HW7CMxaFJNYReCOihHQ=\""
+          "Value": "\"puZhK8wHHrbail4V7Ju2WZLGMOrDurk+3UI6ikKnkXU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 23 Apr 2025 16:35:33 GMT"
+          "Value": "Fri, 23 May 2025 15:50:50 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5676,13 +5676,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"AJih+pwFZwNp2JH4zye9BjT8Em9+nlZmc0gm2/WdIJQ=\""
+          "Value": "W/\"uPjmpTaoWKgPPhUE7RDbJcuWwR+FIm9VBygiJYaI6gs=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "k3ogaoxw1z"
+          "Value": "os3qv963hp"
         },
         {
           "Name": "label",
@@ -5690,12 +5690,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-AJih+pwFZwNp2JH4zye9BjT8Em9+nlZmc0gm2/WdIJQ="
+          "Value": "sha256-uPjmpTaoWKgPPhUE7RDbJcuWwR+FIm9VBygiJYaI6gs="
         }
       ]
     },
     {
-      "Route": "css/site.k3ogaoxw1z.css",
+      "Route": "css/site.os3qv963hp.css",
       "AssetFile": "/Users/marekdadej/Desktop/PunktWeterynaryjny/wwwroot/css/site.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -5705,7 +5705,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1454"
+          "Value": "2516"
         },
         {
           "Name": "Content-Type",
@@ -5713,11 +5713,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"AJih+pwFZwNp2JH4zye9BjT8Em9+nlZmc0gm2/WdIJQ=\""
+          "Value": "\"uPjmpTaoWKgPPhUE7RDbJcuWwR+FIm9VBygiJYaI6gs=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 23 Apr 2025 16:35:33 GMT"
+          "Value": "Fri, 23 May 2025 15:50:50 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5727,7 +5727,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "k3ogaoxw1z"
+          "Value": "os3qv963hp"
         },
         {
           "Name": "label",
@@ -5735,13 +5735,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-AJih+pwFZwNp2JH4zye9BjT8Em9+nlZmc0gm2/WdIJQ="
+          "Value": "sha256-uPjmpTaoWKgPPhUE7RDbJcuWwR+FIm9VBygiJYaI6gs="
         }
       ]
     },
     {
-      "Route": "css/site.k3ogaoxw1z.css.gz",
-      "AssetFile": "/Users/marekdadej/Desktop/PunktWeterynaryjny/obj/Debug/net9.0/compressed/1e6nd54udc-k3ogaoxw1z.gz",
+      "Route": "css/site.os3qv963hp.css.gz",
+      "AssetFile": "/Users/marekdadej/Desktop/PunktWeterynaryjny/obj/Debug/net9.0/compressed/1e6nd54udc-os3qv963hp.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5750,7 +5750,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "546"
+          "Value": "840"
         },
         {
           "Name": "Content-Type",
@@ -5758,11 +5758,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"I/Plf8aUWJmhUNSUQkGBG240HW7CMxaFJNYReCOihHQ=\""
+          "Value": "\"puZhK8wHHrbail4V7Ju2WZLGMOrDurk+3UI6ikKnkXU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 23 Apr 2025 16:35:33 GMT"
+          "Value": "Fri, 23 May 2025 15:50:50 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5780,7 +5780,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "k3ogaoxw1z"
+          "Value": "os3qv963hp"
         },
         {
           "Name": "label",
@@ -5788,7 +5788,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-I/Plf8aUWJmhUNSUQkGBG240HW7CMxaFJNYReCOihHQ="
+          "Value": "sha256-puZhK8wHHrbail4V7Ju2WZLGMOrDurk+3UI6ikKnkXU="
         }
       ]
     },
@@ -35423,12 +35423,12 @@
     },
     {
       "Route": "PunktWeterynaryjny.bundle.scp.css",
-      "AssetFile": "/Users/marekdadej/Desktop/PunktWeterynaryjny/obj/Debug/net9.0/compressed/n4m2p8m9ay-z9j7edf0gq.gz",
+      "AssetFile": "/Users/marekdadej/Desktop/PunktWeterynaryjny/obj/Debug/net9.0/compressed/n4m2p8m9ay-f6p2y57eyx.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.001841620626"
+          "Quality": "0.002325581395"
         }
       ],
       "ResponseHeaders": [
@@ -35438,15 +35438,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "542"
+          "Value": "429"
         },
         {
           "Name": "ETag",
-          "Value": "\"nxGz3hhNkDQ0VUl3OMcqb04egiM9zA3RtwYqImmM0BA=\""
+          "Value": "\"aENBgD084S3mAMABvQIGRcKVCC38VgBnPsqb6BlPkqg=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 23 Apr 2025 14:55:57 GMT"
+          "Value": "Sun, 25 May 2025 16:17:23 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -35466,13 +35466,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"qZBfAOtZMJzFRjBRPa5Mr8THH3aAqjY27gWAvf3ZSNs=\""
+          "Value": "W/\"93GFGXjDkJkB6Q9/jJ9xnMTM368MV9X7imOJV3czf1M=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-qZBfAOtZMJzFRjBRPa5Mr8THH3aAqjY27gWAvf3ZSNs="
+          "Value": "sha256-93GFGXjDkJkB6Q9/jJ9xnMTM368MV9X7imOJV3czf1M="
         }
       ]
     },
@@ -35487,7 +35487,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1087"
+          "Value": "894"
         },
         {
           "Name": "Content-Type",
@@ -35495,11 +35495,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"qZBfAOtZMJzFRjBRPa5Mr8THH3aAqjY27gWAvf3ZSNs=\""
+          "Value": "\"93GFGXjDkJkB6Q9/jJ9xnMTM368MV9X7imOJV3czf1M=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 23 Apr 2025 14:55:57 GMT"
+          "Value": "Sun, 25 May 2025 16:17:23 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -35509,13 +35509,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-qZBfAOtZMJzFRjBRPa5Mr8THH3aAqjY27gWAvf3ZSNs="
+          "Value": "sha256-93GFGXjDkJkB6Q9/jJ9xnMTM368MV9X7imOJV3czf1M="
         }
       ]
     },
     {
       "Route": "PunktWeterynaryjny.bundle.scp.css.gz",
-      "AssetFile": "/Users/marekdadej/Desktop/PunktWeterynaryjny/obj/Debug/net9.0/compressed/n4m2p8m9ay-z9j7edf0gq.gz",
+      "AssetFile": "/Users/marekdadej/Desktop/PunktWeterynaryjny/obj/Debug/net9.0/compressed/n4m2p8m9ay-f6p2y57eyx.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -35524,7 +35524,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "542"
+          "Value": "429"
         },
         {
           "Name": "Content-Type",
@@ -35532,11 +35532,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"nxGz3hhNkDQ0VUl3OMcqb04egiM9zA3RtwYqImmM0BA=\""
+          "Value": "\"aENBgD084S3mAMABvQIGRcKVCC38VgBnPsqb6BlPkqg=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 23 Apr 2025 14:55:57 GMT"
+          "Value": "Sun, 25 May 2025 16:17:23 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -35554,18 +35554,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-nxGz3hhNkDQ0VUl3OMcqb04egiM9zA3RtwYqImmM0BA="
+          "Value": "sha256-aENBgD084S3mAMABvQIGRcKVCC38VgBnPsqb6BlPkqg="
         }
       ]
     },
     {
-      "Route": "PunktWeterynaryjny.styles.css",
-      "AssetFile": "/Users/marekdadej/Desktop/PunktWeterynaryjny/obj/Debug/net9.0/compressed/oeo4jvtn0z-z9j7edf0gq.gz",
+      "Route": "PunktWeterynaryjny.f6p2y57eyx.bundle.scp.css",
+      "AssetFile": "/Users/marekdadej/Desktop/PunktWeterynaryjny/obj/Debug/net9.0/compressed/n4m2p8m9ay-f6p2y57eyx.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.001841620626"
+          "Quality": "0.002325581395"
         }
       ],
       "ResponseHeaders": [
@@ -35575,152 +35575,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "542"
+          "Value": "429"
         },
         {
           "Name": "ETag",
-          "Value": "\"nxGz3hhNkDQ0VUl3OMcqb04egiM9zA3RtwYqImmM0BA=\""
+          "Value": "\"aENBgD084S3mAMABvQIGRcKVCC38VgBnPsqb6BlPkqg=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 23 Apr 2025 14:55:57 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"qZBfAOtZMJzFRjBRPa5Mr8THH3aAqjY27gWAvf3ZSNs=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-qZBfAOtZMJzFRjBRPa5Mr8THH3aAqjY27gWAvf3ZSNs="
-        }
-      ]
-    },
-    {
-      "Route": "PunktWeterynaryjny.styles.css",
-      "AssetFile": "/Users/marekdadej/Desktop/PunktWeterynaryjny/obj/Debug/net9.0/scopedcss/bundle/PunktWeterynaryjny.styles.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1087"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"qZBfAOtZMJzFRjBRPa5Mr8THH3aAqjY27gWAvf3ZSNs=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 23 Apr 2025 14:55:57 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-qZBfAOtZMJzFRjBRPa5Mr8THH3aAqjY27gWAvf3ZSNs="
-        }
-      ]
-    },
-    {
-      "Route": "PunktWeterynaryjny.styles.css.gz",
-      "AssetFile": "/Users/marekdadej/Desktop/PunktWeterynaryjny/obj/Debug/net9.0/compressed/oeo4jvtn0z-z9j7edf0gq.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "542"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"nxGz3hhNkDQ0VUl3OMcqb04egiM9zA3RtwYqImmM0BA=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 23 Apr 2025 14:55:57 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-nxGz3hhNkDQ0VUl3OMcqb04egiM9zA3RtwYqImmM0BA="
-        }
-      ]
-    },
-    {
-      "Route": "PunktWeterynaryjny.z9j7edf0gq.bundle.scp.css",
-      "AssetFile": "/Users/marekdadej/Desktop/PunktWeterynaryjny/obj/Debug/net9.0/compressed/n4m2p8m9ay-z9j7edf0gq.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.001841620626"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "542"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"nxGz3hhNkDQ0VUl3OMcqb04egiM9zA3RtwYqImmM0BA=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 23 Apr 2025 14:55:57 GMT"
+          "Value": "Sun, 25 May 2025 16:17:23 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -35740,13 +35603,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"qZBfAOtZMJzFRjBRPa5Mr8THH3aAqjY27gWAvf3ZSNs=\""
+          "Value": "W/\"93GFGXjDkJkB6Q9/jJ9xnMTM368MV9X7imOJV3czf1M=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "z9j7edf0gq"
+          "Value": "f6p2y57eyx"
         },
         {
           "Name": "label",
@@ -35754,12 +35617,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-qZBfAOtZMJzFRjBRPa5Mr8THH3aAqjY27gWAvf3ZSNs="
+          "Value": "sha256-93GFGXjDkJkB6Q9/jJ9xnMTM368MV9X7imOJV3czf1M="
         }
       ]
     },
     {
-      "Route": "PunktWeterynaryjny.z9j7edf0gq.bundle.scp.css",
+      "Route": "PunktWeterynaryjny.f6p2y57eyx.bundle.scp.css",
       "AssetFile": "/Users/marekdadej/Desktop/PunktWeterynaryjny/obj/Debug/net9.0/scopedcss/projectbundle/PunktWeterynaryjny.bundle.scp.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -35769,7 +35632,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1087"
+          "Value": "894"
         },
         {
           "Name": "Content-Type",
@@ -35777,11 +35640,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"qZBfAOtZMJzFRjBRPa5Mr8THH3aAqjY27gWAvf3ZSNs=\""
+          "Value": "\"93GFGXjDkJkB6Q9/jJ9xnMTM368MV9X7imOJV3czf1M=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 23 Apr 2025 14:55:57 GMT"
+          "Value": "Sun, 25 May 2025 16:17:23 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -35791,7 +35654,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "z9j7edf0gq"
+          "Value": "f6p2y57eyx"
         },
         {
           "Name": "label",
@@ -35799,13 +35662,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-qZBfAOtZMJzFRjBRPa5Mr8THH3aAqjY27gWAvf3ZSNs="
+          "Value": "sha256-93GFGXjDkJkB6Q9/jJ9xnMTM368MV9X7imOJV3czf1M="
         }
       ]
     },
     {
-      "Route": "PunktWeterynaryjny.z9j7edf0gq.bundle.scp.css.gz",
-      "AssetFile": "/Users/marekdadej/Desktop/PunktWeterynaryjny/obj/Debug/net9.0/compressed/n4m2p8m9ay-z9j7edf0gq.gz",
+      "Route": "PunktWeterynaryjny.f6p2y57eyx.bundle.scp.css.gz",
+      "AssetFile": "/Users/marekdadej/Desktop/PunktWeterynaryjny/obj/Debug/net9.0/compressed/n4m2p8m9ay-f6p2y57eyx.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -35814,7 +35677,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "542"
+          "Value": "429"
         },
         {
           "Name": "Content-Type",
@@ -35822,11 +35685,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"nxGz3hhNkDQ0VUl3OMcqb04egiM9zA3RtwYqImmM0BA=\""
+          "Value": "\"aENBgD084S3mAMABvQIGRcKVCC38VgBnPsqb6BlPkqg=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 23 Apr 2025 14:55:57 GMT"
+          "Value": "Sun, 25 May 2025 16:17:23 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -35844,7 +35707,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "z9j7edf0gq"
+          "Value": "f6p2y57eyx"
         },
         {
           "Name": "label",
@@ -35852,18 +35715,18 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-nxGz3hhNkDQ0VUl3OMcqb04egiM9zA3RtwYqImmM0BA="
+          "Value": "sha256-aENBgD084S3mAMABvQIGRcKVCC38VgBnPsqb6BlPkqg="
         }
       ]
     },
     {
-      "Route": "PunktWeterynaryjny.z9j7edf0gq.styles.css",
-      "AssetFile": "/Users/marekdadej/Desktop/PunktWeterynaryjny/obj/Debug/net9.0/compressed/oeo4jvtn0z-z9j7edf0gq.gz",
+      "Route": "PunktWeterynaryjny.f6p2y57eyx.styles.css",
+      "AssetFile": "/Users/marekdadej/Desktop/PunktWeterynaryjny/obj/Debug/net9.0/compressed/oeo4jvtn0z-f6p2y57eyx.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.001841620626"
+          "Quality": "0.002325581395"
         }
       ],
       "ResponseHeaders": [
@@ -35873,15 +35736,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "542"
+          "Value": "429"
         },
         {
           "Name": "ETag",
-          "Value": "\"nxGz3hhNkDQ0VUl3OMcqb04egiM9zA3RtwYqImmM0BA=\""
+          "Value": "\"aENBgD084S3mAMABvQIGRcKVCC38VgBnPsqb6BlPkqg=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 23 Apr 2025 14:55:57 GMT"
+          "Value": "Sun, 25 May 2025 16:17:23 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -35901,13 +35764,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"qZBfAOtZMJzFRjBRPa5Mr8THH3aAqjY27gWAvf3ZSNs=\""
+          "Value": "W/\"93GFGXjDkJkB6Q9/jJ9xnMTM368MV9X7imOJV3czf1M=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "z9j7edf0gq"
+          "Value": "f6p2y57eyx"
         },
         {
           "Name": "label",
@@ -35915,12 +35778,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-qZBfAOtZMJzFRjBRPa5Mr8THH3aAqjY27gWAvf3ZSNs="
+          "Value": "sha256-93GFGXjDkJkB6Q9/jJ9xnMTM368MV9X7imOJV3czf1M="
         }
       ]
     },
     {
-      "Route": "PunktWeterynaryjny.z9j7edf0gq.styles.css",
+      "Route": "PunktWeterynaryjny.f6p2y57eyx.styles.css",
       "AssetFile": "/Users/marekdadej/Desktop/PunktWeterynaryjny/obj/Debug/net9.0/scopedcss/bundle/PunktWeterynaryjny.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -35930,7 +35793,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1087"
+          "Value": "894"
         },
         {
           "Name": "Content-Type",
@@ -35938,11 +35801,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"qZBfAOtZMJzFRjBRPa5Mr8THH3aAqjY27gWAvf3ZSNs=\""
+          "Value": "\"93GFGXjDkJkB6Q9/jJ9xnMTM368MV9X7imOJV3czf1M=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 23 Apr 2025 14:55:57 GMT"
+          "Value": "Sun, 25 May 2025 16:17:23 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -35952,7 +35815,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "z9j7edf0gq"
+          "Value": "f6p2y57eyx"
         },
         {
           "Name": "label",
@@ -35960,13 +35823,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-qZBfAOtZMJzFRjBRPa5Mr8THH3aAqjY27gWAvf3ZSNs="
+          "Value": "sha256-93GFGXjDkJkB6Q9/jJ9xnMTM368MV9X7imOJV3czf1M="
         }
       ]
     },
     {
-      "Route": "PunktWeterynaryjny.z9j7edf0gq.styles.css.gz",
-      "AssetFile": "/Users/marekdadej/Desktop/PunktWeterynaryjny/obj/Debug/net9.0/compressed/oeo4jvtn0z-z9j7edf0gq.gz",
+      "Route": "PunktWeterynaryjny.f6p2y57eyx.styles.css.gz",
+      "AssetFile": "/Users/marekdadej/Desktop/PunktWeterynaryjny/obj/Debug/net9.0/compressed/oeo4jvtn0z-f6p2y57eyx.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -35975,7 +35838,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "542"
+          "Value": "429"
         },
         {
           "Name": "Content-Type",
@@ -35983,11 +35846,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"nxGz3hhNkDQ0VUl3OMcqb04egiM9zA3RtwYqImmM0BA=\""
+          "Value": "\"aENBgD084S3mAMABvQIGRcKVCC38VgBnPsqb6BlPkqg=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 23 Apr 2025 14:55:57 GMT"
+          "Value": "Sun, 25 May 2025 16:17:23 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -36005,7 +35868,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "z9j7edf0gq"
+          "Value": "f6p2y57eyx"
         },
         {
           "Name": "label",
@@ -36013,7 +35876,144 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-nxGz3hhNkDQ0VUl3OMcqb04egiM9zA3RtwYqImmM0BA="
+          "Value": "sha256-aENBgD084S3mAMABvQIGRcKVCC38VgBnPsqb6BlPkqg="
+        }
+      ]
+    },
+    {
+      "Route": "PunktWeterynaryjny.styles.css",
+      "AssetFile": "/Users/marekdadej/Desktop/PunktWeterynaryjny/obj/Debug/net9.0/compressed/oeo4jvtn0z-f6p2y57eyx.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.002325581395"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "429"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"aENBgD084S3mAMABvQIGRcKVCC38VgBnPsqb6BlPkqg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 25 May 2025 16:17:23 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"93GFGXjDkJkB6Q9/jJ9xnMTM368MV9X7imOJV3czf1M=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-93GFGXjDkJkB6Q9/jJ9xnMTM368MV9X7imOJV3czf1M="
+        }
+      ]
+    },
+    {
+      "Route": "PunktWeterynaryjny.styles.css",
+      "AssetFile": "/Users/marekdadej/Desktop/PunktWeterynaryjny/obj/Debug/net9.0/scopedcss/bundle/PunktWeterynaryjny.styles.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "894"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"93GFGXjDkJkB6Q9/jJ9xnMTM368MV9X7imOJV3czf1M=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 25 May 2025 16:17:23 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-93GFGXjDkJkB6Q9/jJ9xnMTM368MV9X7imOJV3czf1M="
+        }
+      ]
+    },
+    {
+      "Route": "PunktWeterynaryjny.styles.css.gz",
+      "AssetFile": "/Users/marekdadej/Desktop/PunktWeterynaryjny/obj/Debug/net9.0/compressed/oeo4jvtn0z-f6p2y57eyx.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "429"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"aENBgD084S3mAMABvQIGRcKVCC38VgBnPsqb6BlPkqg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 25 May 2025 16:17:23 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-aENBgD084S3mAMABvQIGRcKVCC38VgBnPsqb6BlPkqg="
         }
       ]
     }

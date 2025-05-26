@@ -11,61 +11,65 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-light bg-light border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                    <img src="~/img/logo_strony.png" alt="Logo" style="height: 60px;" />
+                    <img src="~/img/logo_strony.png" alt="Logo" style="height: 60px; max-width: 160px; width: auto;" />
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-center">
                         @if (User.Identity.IsAuthenticated)
                         {
-                            if (User.IsInRole("Pracownik"))
+                            <li class="nav-item mb-2 mb-lg-0">
+                                <a class="nav-link text-dark" asp-controller="Home" asp-action="Index">Strona główna</a>
+                            </li>
+                            @if (User.IsInRole("Pracownik"))
                             {
-                                <li class="nav-item">
+                                <li class="nav-item mb-2 mb-lg-0">
                                     <a class="nav-link text-dark" asp-controller="Animals" asp-action="Index">Ewidencja zwierząt</a>
                                 </li>
-                                <li class="nav-item">
+                                <li class="nav-item mb-2 mb-lg-0">
                                     <a class="nav-link text-dark" asp-controller="Orders" asp-action="Manage">Zarządzanie zamówieniami</a>
-                                </li>
-                                <li class="nav-item">
-                                    <form asp-controller="Account" asp-action="Logout" method="post" class="d-inline">
-                                        <button type="submit" class="btn btn-link nav-link">Wyloguj się</button>
-                                    </form>
                                 </li>
                             }
                             else
                             {
-                                <li class="nav-item">
+                                <li class="nav-item mb-2 mb-lg-0">
                                     <a class="nav-link text-dark" asp-controller="Animals" asp-action="MyPets">Moje zwierzęta</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-controller="Visits" asp-action="Schedule">Umów wizytę</a>
+                                <li class="nav-item mb-2 mb-lg-0">
+                                    <a class="nav-link text-dark" asp-controller="Shop" asp-action="Index">Kup leki</a>
                                 </li>
-                                <li class="nav-item">
+                                <li class="nav-item mb-2 mb-lg-0">
                                     <a class="nav-link text-dark" asp-controller="Shop" asp-action="MyOrders">Moje zamówienia</a>
                                 </li>
-                                <li class="nav-item">
-                                    <form asp-controller="Account" asp-action="Logout" method="post" class="d-inline">
-                                        <button type="submit" class="btn btn-link nav-link">Wyloguj się</button>
-                                    </form>
+                                <li class="nav-item mb-2 mb-lg-0">
+                                    <a class="nav-link text-dark" asp-controller="Home" asp-action="Kontakt">Kontakt</a>
                                 </li>
                             }
+                            <li class="nav-item mb-2 mb-lg-0">
+                                <form asp-controller="Account" asp-action="Logout" method="post" class="d-inline">
+                                    <button type="submit" class="btn btn-link nav-link">Wyloguj się</button>
+                                </form>
+                            </li>
                         }
                         else
                         {
-                            <li class="nav-item">
+                            <li class="nav-item mb-2 mb-lg-0">
                                 <a class="nav-link text-dark" asp-controller="Account" asp-action="Login">Zaloguj się</a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item mb-2 mb-lg-0">
                                 <a class="nav-link text-dark" asp-controller="Account" asp-action="Register">Zarejestruj się</a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item mb-2 mb-lg-0">
                                 <a class="nav-link text-dark" asp-controller="Shop" asp-action="Index">Kup leki</a>
+                            </li>
+                            <li class="nav-item mb-2 mb-lg-0">
+                                <a class="nav-link text-dark" asp-controller="Home" asp-action="Kontakt">Kontakt</a>
                             </li>
                         }
                     </ul>
@@ -74,7 +78,7 @@
         </nav>
     </header>
 
-    <div class="container">
+    <div class="container mb-5">
         @if (TempData["SuccessMessage"] != null)
         {
             <div class="alert alert-success text-center mt-3" role="alert">
@@ -96,7 +100,7 @@
     <footer class="border-top footer text-muted mt-5">
         <div class="container text-center">
             &copy; 2025 - Punkt Weterynaryjny - 
-            <a asp-area="" asp-controller="Home" asp-action="Privacy" class="text-decoration-none">Polityka prywatności</a> | 
+            <a asp-area="" asp-controller="Home" asp-action="Privacy" class="text-decoration-none">Polityka prywatności</a> |
             <a asp-area="" asp-controller="Home" asp-action="Kontakt" class="text-decoration-none">Kontakt</a>
         </div>
     </footer>

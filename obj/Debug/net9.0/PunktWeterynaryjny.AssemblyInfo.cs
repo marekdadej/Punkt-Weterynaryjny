@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PunktWeterynaryjny")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f87bee137fa2d8107417c333a9c2fd773ce75938")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1f2e3f8716899b245cbca3abd2b624ebedcb44eb")]
 [assembly: System.Reflection.AssemblyProductAttribute("PunktWeterynaryjny")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PunktWeterynaryjny")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

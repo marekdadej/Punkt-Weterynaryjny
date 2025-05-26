@@ -251,7 +251,15 @@ namespace PunktWeterynaryjny.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("ContactPhone")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<DateTime>("OrderDate")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ShippingAddress")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<int>("Status")
@@ -276,6 +284,9 @@ namespace PunktWeterynaryjny.Migrations
 
                     b.Property<int>("OrderId")
                         .HasColumnType("INTEGER");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("ProductId")
                         .HasColumnType("INTEGER");
@@ -314,6 +325,35 @@ namespace PunktWeterynaryjny.Migrations
                     b.ToTable("Products");
                 });
 
+            modelBuilder.Entity("PunktWeterynaryjny.Models.TreatmentPlan", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("AnimalId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Medicines")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Recommendations")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AnimalId");
+
+                    b.ToTable("TreatmentPlans");
+                });
+
             modelBuilder.Entity("PunktWeterynaryjny.Models.Visit", b =>
                 {
                     b.Property<int>("Id")
@@ -321,6 +361,12 @@ namespace PunktWeterynaryjny.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Description")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("IsOutVisit")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("OutVisitAddress")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("PetId")
@@ -435,6 +481,17 @@ namespace PunktWeterynaryjny.Migrations
                     b.Navigation("Order");
 
                     b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("PunktWeterynaryjny.Models.TreatmentPlan", b =>
+                {
+                    b.HasOne("PunktWeterynaryjny.Models.Animal", "Animal")
+                        .WithMany()
+                        .HasForeignKey("AnimalId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Animal");
                 });
 
             modelBuilder.Entity("PunktWeterynaryjny.Models.Visit", b =>

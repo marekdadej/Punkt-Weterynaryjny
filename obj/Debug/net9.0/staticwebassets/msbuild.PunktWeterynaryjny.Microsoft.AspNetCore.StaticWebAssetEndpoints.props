@@ -3,14 +3,14 @@
     <StaticWebAssetEndpoint Include="_content/PunktWeterynaryjny/css/site.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-AJih\u002BpwFZwNp2JH4zye9BjT8Em9\u002BnlZmc0gm2/WdIJQ="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1454"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022AJih\u002BpwFZwNp2JH4zye9BjT8Em9\u002BnlZmc0gm2/WdIJQ=\u0022"},{"Name":"Last-Modified","Value":"Wed, 23 Apr 2025 16:35:33 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-uPjmpTaoWKgPPhUE7RDbJcuWwR\u002BFIm9VBygiJYaI6gs="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"2516"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022uPjmpTaoWKgPPhUE7RDbJcuWwR\u002BFIm9VBygiJYaI6gs=\u0022"},{"Name":"Last-Modified","Value":"Fri, 23 May 2025 15:50:50 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/PunktWeterynaryjny/css/site.k3ogaoxw1z.css">
+    <StaticWebAssetEndpoint Include="_content/PunktWeterynaryjny/css/site.os3qv963hp.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"k3ogaoxw1z"},{"Name":"integrity","Value":"sha256-AJih\u002BpwFZwNp2JH4zye9BjT8Em9\u002BnlZmc0gm2/WdIJQ="},{"Name":"label","Value":"_content/PunktWeterynaryjny/css/site.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1454"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022AJih\u002BpwFZwNp2JH4zye9BjT8Em9\u002BnlZmc0gm2/WdIJQ=\u0022"},{"Name":"Last-Modified","Value":"Wed, 23 Apr 2025 16:35:33 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"os3qv963hp"},{"Name":"integrity","Value":"sha256-uPjmpTaoWKgPPhUE7RDbJcuWwR\u002BFIm9VBygiJYaI6gs="},{"Name":"label","Value":"_content/PunktWeterynaryjny/css/site.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"2516"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022uPjmpTaoWKgPPhUE7RDbJcuWwR\u002BFIm9VBygiJYaI6gs=\u0022"},{"Name":"Last-Modified","Value":"Fri, 23 May 2025 15:50:50 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/PunktWeterynaryjny/favicon.61n19gt1b8.ico">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\favicon.ico'))</AssetFile>
@@ -805,16 +805,16 @@
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1117"},{"Name":"Content-Type","Value":"text/plain"},{"Name":"ETag","Value":"\u0022hjIBkvmgxQXbNXK3B9YQ3t06RwLuQSQzC/dpvuB/lMk=\u0022"},{"Name":"Last-Modified","Value":"Wed, 23 Apr 2025 14:54:50 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/PunktWeterynaryjny/PunktWeterynaryjny.bundle.scp.css">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\PunktWeterynaryjny.z9j7edf0gq.bundle.scp.css'))</AssetFile>
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\PunktWeterynaryjny.f6p2y57eyx.bundle.scp.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-qZBfAOtZMJzFRjBRPa5Mr8THH3aAqjY27gWAvf3ZSNs="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1087"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022qZBfAOtZMJzFRjBRPa5Mr8THH3aAqjY27gWAvf3ZSNs=\u0022"},{"Name":"Last-Modified","Value":"Wed, 23 Apr 2025 14:55:57 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-93GFGXjDkJkB6Q9/jJ9xnMTM368MV9X7imOJV3czf1M="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"894"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u002293GFGXjDkJkB6Q9/jJ9xnMTM368MV9X7imOJV3czf1M=\u0022"},{"Name":"Last-Modified","Value":"Sun, 25 May 2025 16:17:23 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/PunktWeterynaryjny/PunktWeterynaryjny.z9j7edf0gq.bundle.scp.css">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\PunktWeterynaryjny.z9j7edf0gq.bundle.scp.css'))</AssetFile>
+    <StaticWebAssetEndpoint Include="_content/PunktWeterynaryjny/PunktWeterynaryjny.f6p2y57eyx.bundle.scp.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\PunktWeterynaryjny.f6p2y57eyx.bundle.scp.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"z9j7edf0gq"},{"Name":"integrity","Value":"sha256-qZBfAOtZMJzFRjBRPa5Mr8THH3aAqjY27gWAvf3ZSNs="},{"Name":"label","Value":"_content/PunktWeterynaryjny/PunktWeterynaryjny.bundle.scp.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1087"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022qZBfAOtZMJzFRjBRPa5Mr8THH3aAqjY27gWAvf3ZSNs=\u0022"},{"Name":"Last-Modified","Value":"Wed, 23 Apr 2025 14:55:57 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"f6p2y57eyx"},{"Name":"integrity","Value":"sha256-93GFGXjDkJkB6Q9/jJ9xnMTM368MV9X7imOJV3czf1M="},{"Name":"label","Value":"_content/PunktWeterynaryjny/PunktWeterynaryjny.bundle.scp.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"894"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u002293GFGXjDkJkB6Q9/jJ9xnMTM368MV9X7imOJV3czf1M=\u0022"},{"Name":"Last-Modified","Value":"Sun, 25 May 2025 16:17:23 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
   </ItemGroup>
 </Project>

@@ -6,10 +6,8 @@
 
 <h2>Umów wizytę</h2>
 
-@if (TempData["SuccessMessage"] != null)
-{
-    <div class="alert alert-success">@TempData["SuccessMessage"]</div>
-}
+
+<div asp-validation-summary="All" class="text-danger"></div>
 
 <form asp-action="Schedule" method="post">
     <div class="form-group">
@@ -18,7 +16,7 @@
         <span asp-validation-for="PetId" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="VisitDate"></label>
+        <label asp-for="VisitDate">Data i godzina wizyty</label>
         <input asp-for="VisitDate" type="datetime-local" class="form-control" />
         <span asp-validation-for="VisitDate" class="text-danger"></span>
     </div>

@@ -45,6 +45,7 @@ form input, form textarea {
   border-radius: 6px;
   border: 1px solid #ccc;
   font-size: 1rem;
+  box-sizing: border-box;
 }
 
 form button {
@@ -56,6 +57,7 @@ form button {
   padding: 60px 20px;
   background-color: #d5e520;
   color: #0e3de7;
+  border-radius: 10px;
 }
 
 .hero h1 {
@@ -79,17 +81,69 @@ footer {
   width: 100%;
 }
 
-@media (max-width: 768px) {
+/* --- RESPONSYWNOŚĆ --- */
+
+/* Telefony (do 575px) */
+@media (max-width: 575px) {
+  .hero {
+    padding: 30px 8px;
+    border-radius: 0;
+  }
   .hero h1 {
-      font-size: 1.8rem;
+    font-size: 1.5rem;
   }
-
   .hero p {
-      font-size: 1rem;
+    font-size: 1rem;
   }
-
   .btn {
-      font-size: 0.9rem;
-      padding: 8px 16px;
+    font-size: 0.95rem;
+    padding: 8px 10px;
+    margin: 7px 2px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  form input, form textarea {
+    font-size: 0.95rem;
+    padding: 8px;
+  }
+  .container, .card, table, .table {
+    padding: 0;
+    font-size: 0.98rem;
+  }
+}
+
+/* Tablety (576px - 991px) */
+@media (min-width: 576px) and (max-width: 991px) {
+  .hero {
+    padding: 40px 12px;
+    border-radius: 6px;
+  }
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .hero p {
+    font-size: 1.1rem;
+  }
+  .btn {
+    font-size: 1rem;
+    padding: 9px 16px;
+  }
+}
+
+/* Małe ekrany komputerowe (992px - 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+}
+
+/* Bardzo małe ekrany - fallback, usunięto błąd z max-width: 200px */
+@media (max-width: 350px) {
+  .hero h1 {
+    font-size: 1.1rem;
+  }
+  .btn {
+    font-size: 0.8rem;
+    padding: 6px 10px;
   }
 }

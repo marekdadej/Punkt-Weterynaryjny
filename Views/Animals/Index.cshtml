@@ -1,0 +1,43 @@
+@model IEnumerable<PunktWeterynaryjny.Models.Animal>
+@{
+    ViewData["Title"] = "Ewidencja zwierząt";
+}
+
+<h2>Ewidencja zwierząt</h2>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success text-center">@TempData["SuccessMessage"]</div>
+}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Imię</th>
+            <th>Gatunek</th>
+            <th>Rasa</th>
+            <th>Data urodzenia</th>
+            <th>Właściciel</th>
+            <th>Akcje</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var animal in Model)
+    {
+        <tr>
+            <td>@animal.Name</td>
+            <td>@animal.Species</td>
+            <td>@animal.Breed</td>
+            <td>@animal.BirthDate.ToShortDateString()</td>
+            <td>@animal.Owner?.Email</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@animal.Id" class="btn btn-sm btn-primary me-1">Edytuj</a>
+                <form asp-action="Delete" asp-route-id="@animal.Id" method="post" class="d-inline">
+                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Czy na pewno usunąć to zwierzę?');">Usuń</button>
+                </form>
+                <a class="btn btn-sm btn-info" asp-controller="TreatmentPlans" asp-action="Animal" asp-route-animalId="@animal.Id">Plan leczenia</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
