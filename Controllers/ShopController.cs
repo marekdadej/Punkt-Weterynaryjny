@@ -25,7 +25,8 @@ namespace PunktWeterynaryjny.Controllers
         public IActionResult Index()
         {
             var products = _context.Products.ToList();
-            return View(products);
+			Console.WriteLine($"Liczba produktów: {products.Count}");
+			return View(products);
         }
 
         [HttpPost]
@@ -79,8 +80,27 @@ namespace PunktWeterynaryjny.Controllers
             return View(vm);
         }
 
-        // POST: Checkout – finalizacja zamówienia
-        [Authorize]
+		[Authorize]
+		public IActionResult MyOrders()
+		{
+			var userId = _userManager.GetUserId(User);
+
+			var orders = _context.Orders
+				.Where(o => o.UserId == userId)
+				.Select(o => new OrderViewModel
+				{
+					OrderId = o.Id,
+					OrderDate = o.OrderDate,
+					Status = o.Status
+				})
+				.ToList();
+
+			return View(orders);
+		}
+
+
+		// POST: Checkout – finalizacja zamówienia
+		[Authorize]
         [HttpPost]
         public async Task<IActionResult> Checkout(CheckoutViewModel model)
         {
