@@ -1,0 +1,66 @@
+@model IEnumerable<PunktWeterynaryjny.Models.TreatmentPlan>
+@{
+    var animal = ViewBag.Animal as PunktWeterynaryjny.Models.Animal;
+    ViewData["Title"] = animal != null ? $"Plan leczenia – {animal.Name}" : "Plan leczenia";
+}
+
+<h2>Plan leczenia – @animal?.Name</h2>
+
+<div class="mb-3">
+    @if (User.IsInRole("Pracownik"))
+    {
+        <a class="btn btn-success" asp-action="Add" asp-route-animalId="@animal?.Id">Dodaj wpis</a>
+        <a class="btn btn-secondary ms-2" asp-controller="Animals" asp-action="Index">Powrót do pupili</a>
+    }
+    else
+    {
+        <a class="btn btn-secondary" asp-controller="Animals" asp-action="MyPets">Powrót do pupili</a>
+    }
+</div>
+
+@if (Model == null || !Model.Any())
+{
+    <div class="alert alert-info">
+        Brak wpisów w planie leczenia.
+    </div>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Data wpisu</th>
+                <th>Opis leczenia</th>
+                <th>Zalecenia</th>
+                <th>Leki</th>
+                @if (User.IsInRole("Pracownik"))
+                {
+                    <th>Akcje</th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var plan in Model)
+        {
+            <tr>
+                <td>@plan.Date.ToString("dd.MM.yyyy")</td>
+                <td>@plan.Description</td>
+                <td>@plan.Recommendations</td>
+                <td>@plan.Medicines</td>
+                @if (User.IsInRole("Pracownik"))
+                {
+                    <td>
+                        <a class="btn btn-sm btn-primary me-1" asp-action="Edit" asp-route-id="@plan.Id">Edytuj</a>
+                        <form asp-action="Delete" asp-route-id="@plan.Id" method="post" class="d-inline">
+                            <button type="submit" class="btn btn-sm btn-danger"
+                                    onclick="return confirm('Na pewno usunąć ten wpis?');">
+                                Usuń
+                            </button>
+                        </form>
+                    </td>
+                }
+            </tr>
+        }
+        </tbody>
+    </table>
+}

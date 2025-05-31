@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36121.58 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PunktWeterynaryjny", "PunktWeterynaryjny.csproj", "{4E3FE264-7362-0C77-8E59-95C787272CCB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4E3FE264-7362-0C77-8E59-95C787272CCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E3FE264-7362-0C77-8E59-95C787272CCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E3FE264-7362-0C77-8E59-95C787272CCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E3FE264-7362-0C77-8E59-95C787272CCB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FB3C16D3-2060-4E18-AD10-AAE0243151C4}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,71 @@
+@model IEnumerable<PunktWeterynaryjny.Models.Animal>
+@{
+    ViewData["Title"] = "Ewidencja zwierząt";
+    var owners = ViewBag.Owners as IEnumerable<Microsoft.AspNetCore.Identity.IdentityUser>;
+    string selectedOwnerId = ViewBag.SelectedOwnerId as string;
+    var selectedOwner = owners?.FirstOrDefault(x => x.Id == selectedOwnerId);
+}
+
+<h2>Ewidencja zwierząt</h2>
+
+<form method="get" class="mb-3">
+    <div class="row">
+        <div class="col-md-4">
+            <select name="ownerId" class="form-select" onchange="this.form.submit()">
+                <option value="">-- Wszyscy właściciele --</option>
+                @{
+                    if (owners != null)
+                    {
+                        foreach (var owner in owners)
+                        {
+                            var selected = owner.Id == selectedOwnerId ? "selected=\"selected\"" : "";
+                            @:<option value="@owner.Id" @Html.Raw(selected)>@owner.Email</option>
+                        }
+                    }
+                }
+            </select>
+        </div>
+    </div>
+</form>
+
+@if (!string.IsNullOrEmpty(selectedOwnerId) && selectedOwner != null && selectedOwner.Email != "pracownik@punktweterynaryjny.pl")
+{
+    <div class="mb-3">
+        <a asp-action="Add" asp-route-ownerId="@selectedOwnerId" class="btn btn-success me-2">Dodaj zwierzaka</a>
+        <form asp-controller="Animals" asp-action="DeleteUser" asp-route-userId="@selectedOwnerId" method="post" class="d-inline">
+            <button type="submit" class="btn btn-warning" onclick="return confirm('Czy na pewno usunąć konto tego użytkownika?');">Usuń konto właściciela</button>
+        </form>
+    </div>
+}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Imię</th>
+            <th>Gatunek</th>
+            <th>Rasa</th>
+            <th>Data urodzenia</th>
+            <th>Właściciel</th>
+            <th>Akcje</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var animal in Model)
+    {
+        <tr>
+            <td>@animal.Name</td>
+            <td>@animal.Species</td>
+            <td>@animal.Breed</td>
+            <td>@animal.BirthDate.ToShortDateString()</td>
+            <td>@animal.Owner?.Email</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@animal.Id" class="btn btn-sm btn-primary me-1">Edytuj</a>
+                <form asp-action="Delete" asp-route-id="@animal.Id" method="post" class="d-inline">
+                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Czy na pewno usunąć to zwierzę?');">Usuń</button>
+                </form>
+                <a class="btn btn-sm btn-info" asp-controller="TreatmentPlans" asp-action="Animal" asp-route-animalId="@animal.Id">Plan leczenia</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

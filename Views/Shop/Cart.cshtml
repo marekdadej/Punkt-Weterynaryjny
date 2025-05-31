@@ -1,0 +1,54 @@
+@model List<PunktWeterynaryjny.Models.CartItem>
+@{
+    ViewData["Title"] = "Koszyk";
+}
+
+<h2>Koszyk</h2>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">Twój koszyk jest pusty.</div>
+    <a class="btn btn-primary" asp-action="Index">Wróć do sklepu</a>
+}
+else
+{
+    <form asp-action="UpdateCart" method="post">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Produkt</th>
+                    <th>Cena</th>
+                    <th>Ilość</th>
+                    <th>Suma</th>
+                    <th>Akcje</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.Count; i++)
+                {
+                    <tr>
+                        <td>@Model[i].ProductName</td>
+                        <td>@Model[i].Price zł</td>
+                        <td>
+                            <input type="number" name="quantities[@i]" value="@Model[i].Quantity" min="1" class="form-control" />
+                            <input type="hidden" name="productIds[@i]" value="@Model[i].ProductId" />
+                        </td>
+                        <td>@(Model[i].Price * Model[i].Quantity) zł</td>
+                        <td>
+                            <form asp-action="RemoveFromCart" asp-route-id="@Model[i].ProductId" method="post">
+                                <button type="submit" class="btn btn-danger btn-sm">Usuń</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div class="d-flex justify-content-between">
+            <a class="btn btn-secondary" asp-action="Index">Kontynuuj zakupy</a>
+            <div>
+                <button type="submit" class="btn btn-warning">Aktualizuj koszyk</button>
+                <a class="btn btn-success" asp-action="Checkout">Zamów</a>
+            </div>
+        </div>
+    </form>
+}

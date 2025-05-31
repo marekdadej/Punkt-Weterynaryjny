@@ -1,0 +1,149 @@
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #212529;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+.btn {
+  text-decoration: none;
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 10px 5px;
+  background-color: #ffffff;
+  color: #000;
+  font-weight: bold;
+  border: 2px solid #000;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #ff0000c5;
+  color: #000;
+}
+
+form label {
+  font-weight: bold;
+}
+
+form input, form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+form button {
+  margin-top: 10px;
+}
+
+.hero {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #d5e520;
+  color: #0e3de7;
+  border-radius: 10px;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+footer {
+  background-color: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+/* --- RESPONSYWNOŚĆ --- */
+
+/* Telefony (do 575px) */
+@media (max-width: 575px) {
+  .hero {
+    padding: 30px 8px;
+    border-radius: 0;
+  }
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+  .btn {
+    font-size: 0.95rem;
+    padding: 8px 10px;
+    margin: 7px 2px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  form input, form textarea {
+    font-size: 0.95rem;
+    padding: 8px;
+  }
+  .container, .card, table, .table {
+    padding: 0;
+    font-size: 0.98rem;
+  }
+}
+
+/* Tablety (576px - 991px) */
+@media (min-width: 576px) and (max-width: 991px) {
+  .hero {
+    padding: 40px 12px;
+    border-radius: 6px;
+  }
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .hero p {
+    font-size: 1.1rem;
+  }
+  .btn {
+    font-size: 1rem;
+    padding: 9px 16px;
+  }
+}
+
+/* Małe ekrany komputerowe (992px - 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+}
+
+/* Bardzo małe ekrany - fallback, usunięto błąd z max-width: 200px */
+@media (max-width: 350px) {
+  .hero h1 {
+    font-size: 1.1rem;
+  }
+  .btn {
+    font-size: 0.8rem;
+    padding: 6px 10px;
+  }
+}

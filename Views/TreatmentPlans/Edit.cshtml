@@ -1,0 +1,40 @@
+@model PunktWeterynaryjny.Models.TreatmentPlan
+@{
+    ViewData["Title"] = "Edytuj wpis w planie leczenia";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+    <input type="hidden" asp-for="AnimalId" />
+
+    <div class="form-group">
+        <label asp-for="Date"></label>
+        <input asp-for="Date" type="date" class="form-control" />
+        <span asp-validation-for="Date" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Recommendations"></label>
+        <input asp-for="Recommendations" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Medicines"></label>
+        <input asp-for="Medicines" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Zapisz zmiany</button>
+    <a asp-action="Animal" asp-route-animalId="@Model.AnimalId" class="btn btn-secondary">Anuluj</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

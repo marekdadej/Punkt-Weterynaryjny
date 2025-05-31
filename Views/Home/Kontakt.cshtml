@@ -1,0 +1,35 @@
+@{
+    ViewData["Title"] = "Kontakt";
+}
+
+<h2>Skontaktuj się z nami</h2>
+
+<p>Chętnie odpowiemy na Twoje pytania dotyczące leczenia, wizyt, leków i opieki nad zwierzętami.</p>
+
+<div>
+    <p><strong>Adres:</strong> ul. Zwierzęca 5, 00-000 Weterynowo</p>
+    <p><strong>Telefon:</strong> 123 456 789</p>
+    <p><strong>Email:</strong> kontakt@punktweterynaryjny.pl</p>
+    <p><strong>Godziny otwarcia:</strong> Pon–Pt: 08:00–18:00, Sobota: 09:00–14:00</p>
+</div>
+
+<h4>Napisz do nas</h4>
+<form method="post" action="#">
+    <div class="mb-3">
+        <label for="name" class="form-label">Imię i nazwisko</label>
+        <input type="text" class="form-control" id="name" placeholder="Wpisz swoje imię i nazwisko">
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Adres e-mail</label>
+        <input type="email" class="form-control" id="email" placeholder="Wpisz swój adres e-mail">
+    </div>
+    <div class="mb-3">
+        <label for="phone" class="form-label">Numer telefonu</label>
+        <input type="tel" class="form-control" id="phone" placeholder="Wpisz numer telefonu">
+    </div>
+    <div class="mb-3">
+        <label for="message" class="form-label">Wiadomość</label>
+        <textarea class="form-control" id="message" rows="5" placeholder="Wpisz swoją wiadomość"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Wyślij</button>
+</form>
