@@ -17,6 +17,7 @@
             <a class="btn btn-primary m-2" href="/Account/Login">Zaloguj się</a>
             <a class="btn btn-secondary m-2" href="/Account/Register">Zarejestruj się</a>
             <a class="btn btn-success m-2" href="/Shop/Index">Kup leki</a>
+            <a class="btn btn-success m-2" href="/Shop/Cart">Koszyk</a>
             <a class="btn btn-info m-2" href="/Home/Kontakt">Kontakt</a>
         }
         else if (User.IsInRole("Pracownik"))
@@ -30,7 +31,8 @@
         {
             <a class="btn btn-primary m-2" href="/Animals/MyPets">Moje zwierzęta</a>
             <a class="btn btn-success m-2" href="/Shop/Index">Kup leki</a>
-            <a class="btn btn-success m-2" href="/Shop/MyOrders">Moje zamówienia</a>
+            <a class="btn btn-success m-2" href="/Orders/MyOrders">Moje zamówienia</a>
+            <a class="btn btn-success m-2" href="/Shop/Cart">Koszyk</a>
             <a class="btn btn-info m-2" href="/Home/Kontakt">Kontakt</a>
         }
     </div>

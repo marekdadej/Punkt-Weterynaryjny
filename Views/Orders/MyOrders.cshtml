@@ -1,4 +1,4 @@
-@model IEnumerable<PunktWeterynaryjny.Models.OrderViewModel>
+@model IEnumerable<OrderViewModel>
 @using PunktWeterynaryjny.Models
 @{
     ViewData["Title"] = "Moje zamówienia";
@@ -25,9 +25,10 @@
                 <td>
                     @if (order.Status == OrderStatus.Przyjęte)
                     {
-                        <form asp-action="CancelOrder" asp-route-id="@order.OrderId" method="post" style="display:inline;">
+                        <form asp-controller="Orders" asp-action="Cancel" asp-route-orderId="@order.OrderId" method="post" style="display:inline;" onsubmit="return confirm('Czy na pewno chcesz anulować zamówienie?');">
                             <button type="submit" class="btn btn-danger btn-sm">Anuluj</button>
                         </form>
+
                     }
                     <a asp-action="OrderDetails" asp-route-id="@order.OrderId" class="btn btn-info btn-sm">Szczegóły</a>
                 </td>

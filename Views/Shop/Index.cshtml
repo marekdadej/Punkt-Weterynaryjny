@@ -14,7 +14,7 @@
                     <h5 class="card-title">@product.Name</h5>
                     <p class="card-text">@product.Description</p>
                     <p class="card-text"><strong>Cena:</strong> @product.Price zł</p>
-                    <form asp-controller="Cart" asp-action="AddToCart" method="post">
+                    <form asp-controller="Shop" asp-action="AddToCart" method="post">
                         <input type="hidden" name="id" value="@product.Id" />
                         <button type="submit" class="btn btn-primary">Dodaj do koszyka</button>
                     </form>

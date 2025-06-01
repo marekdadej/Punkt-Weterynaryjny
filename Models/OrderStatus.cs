@@ -3,8 +3,8 @@ namespace PunktWeterynaryjny.Models
     public enum OrderStatus
     {
         Przyjęte,
-        WRealizacji,
-        WDrodze,
+        W_Realizacji,
+        W_Drodze,
         Dostarczone,
         Anulowane
     }

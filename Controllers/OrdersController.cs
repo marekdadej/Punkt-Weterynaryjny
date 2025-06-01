@@ -19,21 +19,30 @@ namespace PunktWeterynaryjny.Controllers
             _userManager = userManager;
         }
 
-        // Wyświetlanie zamówień użytkownika
-        public async Task<IActionResult> MyOrders()
-        {
-            var userId = _userManager.GetUserId(User);
-            var orders = await _context.Orders
-                .Where(o => o.UserId == userId)
-                .Include(o => o.OrderItems)
-                .ThenInclude(oi => oi.Product)
-                .ToListAsync();
+		// Wyświetlanie zamówień użytkownika
+		public async Task<IActionResult> MyOrders()
+		{
+			var userId = _userManager.GetUserId(User);
+			var orders = await _context.Orders
+				.Where(o => o.UserId == userId)
+				.Include(o => o.OrderItems)
+				.ThenInclude(oi => oi.Product)
+				.ToListAsync();
 
-            return View(orders);
-        }
+			var viewModels = orders.Select(o => new OrderViewModel
+			{
+				OrderId = o.Id,
+				OrderDate = o.OrderDate,
+				Status = o.Status,
+				Items = o.OrderItems
+			}).ToList();
 
-        // Dla pracownika: zarządzanie zamówieniami
-        [Authorize(Roles = "Pracownik")]
+			return View(viewModels);
+		}
+
+
+		// Dla pracownika: zarządzanie zamówieniami
+		[Authorize(Roles = "Pracownik")]
         public async Task<IActionResult> Manage()
         {
             var orders = await _context.Orders
@@ -41,7 +50,15 @@ namespace PunktWeterynaryjny.Controllers
                 .ThenInclude(oi => oi.Product)
                 .ToListAsync();
 
-            return View(orders);
+			var viewModels = orders.Select(o => new OrderViewModel
+			{
+				OrderId = o.Id,
+				OrderDate = o.OrderDate,
+				Status = o.Status,
+				Items = o.OrderItems
+			}).ToList();
+
+			return View(viewModels);
         }
 
         // Pracownik: zmiana statusu zamówienia
@@ -73,5 +90,31 @@ namespace PunktWeterynaryjny.Controllers
 
             return RedirectToAction(nameof(MyOrders));
         }
-    }
+
+		[Authorize]
+		public async Task<IActionResult> OrderDetails(int id)
+		{
+			var userId = _userManager.GetUserId(User);
+			var isEmployee = User.IsInRole("Pracownik");
+
+			var orderQuery = _context.Orders
+				.Include(o => o.OrderItems)
+				.ThenInclude(oi => oi.Product)
+				.AsQueryable();
+
+			if (!isEmployee)
+			{
+				// zwykły użytkownik może zobaczyć tylko swoje zamówienie
+				orderQuery = orderQuery.Where(o => o.UserId == userId);
+			}
+
+			var order = await orderQuery.FirstOrDefaultAsync(o => o.Id == id);
+
+			if (order == null)
+				return NotFound();
+
+			return View(order); // View z modelem typu Order
+		}
+
+	}
 }

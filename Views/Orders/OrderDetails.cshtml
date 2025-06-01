@@ -1,0 +1,43 @@
+﻿@model PunktWeterynaryjny.Models.Order
+
+@{
+    ViewData["Title"] = "Szczegóły zamówienia";
+}
+
+<h2>Szczegóły zamówienia #@Model.Id</h2>
+
+<p><strong>Data złożenia:</strong> @Model.OrderDate.ToString("dd.MM.yyyy")</p>
+<p><strong>Status:</strong> @Model.Status</p>
+<p><strong>Adres wysyłki:</strong> @Model.ShippingAddress</p>
+<p><strong>Telefon kontaktowy:</strong> @Model.ContactPhone</p>
+
+<h4 class="mt-4">Produkty</h4>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Nazwa</th>
+            <th>Cena</th>
+            <th>Ilość</th>
+            <th>Suma</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.OrderItems)
+        {
+            <tr>
+                <td>@item.Product.Name</td>
+                <td>@item.Price zł</td>
+                <td>@item.Quantity</td>
+                <td>@(item.Price* item.Quantity) zł</td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3" class="text-end"><strong>Łącznie:</strong></td>
+            <td><strong>@Model.OrderItems.Sum(i => i.Price * i.Quantity) zł</strong></td>
+        </tr>
+    </tfoot>
+</table>
+
+<a asp-action="MyOrders" class="btn btn-secondary mt-3">Wróć do listy zamówień</a>

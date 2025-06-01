@@ -15,14 +15,14 @@ namespace PunktWeterynaryjny.Migrations
                 keyColumn: "Id",
                 keyValue: 1,
                 columns: new[] { "Description", "Name" },
-                values: new object[] { "Skuteczny lek na b�l", "Lek przeciwb�lowy" });
+                values: new object[] { "Skuteczny lek na ból", "Lek przeciwb�lowy" });
 
             migrationBuilder.UpdateData(
                 table: "Products",
                 keyColumn: "Id",
                 keyValue: 3,
                 columns: new[] { "Description", "Name" },
-                values: new object[] { "Ochrona przed pch�ami", "Preparat na pch�y" });
+                values: new object[] { "Ochrona przed pchłami", "Preparat na pch�y" });
         }
 
         /// <inheritdoc />
