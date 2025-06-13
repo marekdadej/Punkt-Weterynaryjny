@@ -41,23 +41,37 @@ namespace PunktWeterynaryjny.Controllers
 
         public IActionResult Login() => View();
 
-        [HttpPost]
-        public async Task<IActionResult> Login(LoginViewModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
-                if (result.Succeeded)
-                {
-                    TempData["SuccessMessage"] = "Zalogowano pomyślnie!";
-                    return RedirectToAction("Index", "Home");
-                }
-                ModelState.AddModelError("", "Nieprawidłowy login lub hasło");
-            }
-            return View(model);
-        }
+		[HttpGet]
+		public IActionResult Login(string returnUrl = null)
+		{
+			ViewData["ReturnUrl"] = returnUrl;
+			return View();
+		}
 
-        [HttpPost]
+
+		[HttpPost]
+		public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = null)
+		{
+			if (!ModelState.IsValid)
+				return View(model);
+
+			var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
+
+			if (result.Succeeded)
+			{
+				if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
+					return Redirect(returnUrl); // ← tylko jeśli zostało przekazane
+				else
+					return RedirectToAction("Index", "Home"); // ← normalne logowanie z menu itp.
+			}
+
+			ModelState.AddModelError("", "Nieprawidłowy login lub hasło.");
+			return View(model);
+		}
+
+
+
+		[HttpPost]
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();

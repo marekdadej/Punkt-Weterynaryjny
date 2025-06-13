@@ -107,8 +107,6 @@ namespace PunktWeterynaryjny.Controllers
             return View(vm);
         }
 
-		[Authorize]
-
 		// POST: Checkout – finalizacja zamówienia
 		[Authorize]
         [HttpPost]

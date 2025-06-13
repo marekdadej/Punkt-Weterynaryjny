@@ -40,4 +40,11 @@
     </tfoot>
 </table>
 
-<a asp-action="MyOrders" class="btn btn-secondary mt-3">Wróć do listy zamówień</a>
+@if (User.IsInRole("Pracownik"))
+{
+    <a asp-action="Manage" class="btn btn-secondary">Wróć do listy zamówień</a>
+}
+else
+{
+    <a asp-action="MyOrders" class="btn btn-secondary">Wróć do listy zamówień</a>
+}

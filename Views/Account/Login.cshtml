@@ -8,6 +8,7 @@
 <div asp-validation-summary="All" class="text-danger"></div>
 
 <form asp-action="Login" method="post">
+    <input type="hidden" name="returnUrl" value="@ViewData["ReturnUrl"]" />
     <div class="form-group">
         <label asp-for="Email">Adres e-mail</label>
         <input asp-for="Email" class="form-control" placeholder="Wpisz adres e-mail" />

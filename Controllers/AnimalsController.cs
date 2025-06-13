@@ -21,26 +21,52 @@ namespace PunktWeterynaryjny.Controllers
             _userManager = userManager;
         }
 
-        [Authorize(Roles = "Pracownik")]
-        public async Task<IActionResult> Index(string ownerId = null)
-        {
-            var owners = await _userManager.Users
-                .Where(u => u.Email != "pracownik@punktweterynaryjny.pl")
-                .OrderBy(u => u.Email)
-                .ToListAsync();
+		[Authorize(Roles = "Pracownik")]
+		public async Task<IActionResult> Index(string ownerId, string email)
+		{
+			var animalsQuery = _context.Animals
+				.Include(a => a.Owner)
+				.AsQueryable();
 
-            ViewBag.Owners = owners;
-            IQueryable<Animal> animalsQuery = _context.Animals.Include(a => a.Owner);
+			var owners = _userManager.Users.ToList();
+			IdentityUser selectedUser = null;
 
-            if (!string.IsNullOrEmpty(ownerId))
-                animalsQuery = animalsQuery.Where(a => a.OwnerId == ownerId);
+			if (!string.IsNullOrEmpty(ownerId))
+			{
+				animalsQuery = animalsQuery.Where(a => a.OwnerId == ownerId);
+				selectedUser = owners.FirstOrDefault(u => u.Id == ownerId);
+				ViewBag.SelectedOwnerId = ownerId;
+			}
+			else if (!string.IsNullOrEmpty(email))
+			{
+				var user = await _userManager.FindByEmailAsync(email);
+				if (user != null)
+				{
+					animalsQuery = animalsQuery.Where(a => a.OwnerId == user.Id);
+					ViewBag.SelectedOwnerId = user.Id;
+					selectedUser = user;
 
-            var animals = await animalsQuery.OrderBy(a => a.Name).ToListAsync();
-            ViewBag.SelectedOwnerId = ownerId;
-            return View(animals);
-        }
+					// jeśli użytkownika nie ma w liście rozwijanej — dodaj go
+					if (!owners.Any(o => o.Id == user.Id))
+					{
+						owners.Insert(0, user); // dodaj na początek
+					}
+				}
+				else
+				{
+					ViewBag.NotFoundMessage = $"Nie znaleziono użytkownika o adresie e-mail: {email}";
+				}
+			}
 
-        public async Task<IActionResult> MyPets()
+			var animals = await animalsQuery.ToListAsync();
+
+			ViewBag.Owners = owners;
+			return View(animals);
+		}
+
+
+
+		public async Task<IActionResult> MyPets()
         {
             var userId = _userManager.GetUserId(User);
             var animals = await _context.Animals
@@ -156,24 +182,6 @@ namespace PunktWeterynaryjny.Controllers
             await _context.SaveChangesAsync();
             TempData["SuccessMessage"] = "Zwierzak został usunięty!";
             return User.IsInRole("Pracownik") ? RedirectToAction(nameof(Index)) : RedirectToAction(nameof(MyPets));
-        }
-
-        [Authorize(Roles = "Pracownik")]
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteUser(string userId)
-        {
-            var user = await _userManager.FindByIdAsync(userId);
-            if (user == null || user.Email == "pracownik@punktweterynaryjny.pl")
-                return NotFound();
-
-            var animals = await _context.Animals.Where(a => a.OwnerId == userId).ToListAsync();
-            _context.Animals.RemoveRange(animals);
-
-            await _userManager.DeleteAsync(user);
-            await _context.SaveChangesAsync();
-            TempData["SuccessMessage"] = "Konto użytkownika oraz powiązane zwierzęta zostały usunięte!";
-            return RedirectToAction(nameof(Index));
         }
     }
 }

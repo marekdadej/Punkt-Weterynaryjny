@@ -13,28 +13,32 @@
         <div class="col-md-4">
             <select name="ownerId" class="form-select" onchange="this.form.submit()">
                 <option value="">-- Wszyscy właściciele --</option>
-                @{
-                    if (owners != null)
+                @if (owners != null)
+                {
+                    foreach (var owner in owners)
                     {
-                        foreach (var owner in owners)
-                        {
-                            var selected = owner.Id == selectedOwnerId ? "selected=\"selected\"" : "";
-                            @:<option value="@owner.Id" @Html.Raw(selected)>@owner.Email</option>
-                        }
+                        var selected = owner.Id == selectedOwnerId ? "selected=\"selected\"" : "";
+                        @:<option value="@owner.Id" @Html.Raw(selected)>@owner.Email</option>
                     }
                 }
             </select>
         </div>
+        <div class="col-md-4">
+            <input type="text" name="email" class="form-control" placeholder="Szukaj po e-mailu"
+                value="@Context.Request.Query["email"]" />
+
+        </div>
+        <div class="col-md-2">
+            <button type="submit" class="btn btn-primary">Szukaj</button>
+        </div>
     </div>
 </form>
+
 
 @if (!string.IsNullOrEmpty(selectedOwnerId) && selectedOwner != null && selectedOwner.Email != "pracownik@punktweterynaryjny.pl")
 {
     <div class="mb-3">
         <a asp-action="Add" asp-route-ownerId="@selectedOwnerId" class="btn btn-success me-2">Dodaj zwierzaka</a>
-        <form asp-controller="Animals" asp-action="DeleteUser" asp-route-userId="@selectedOwnerId" method="post" class="d-inline">
-            <button type="submit" class="btn btn-warning" onclick="return confirm('Czy na pewno usunąć konto tego użytkownika?');">Usuń konto właściciela</button>
-        </form>
     </div>
 }
 
