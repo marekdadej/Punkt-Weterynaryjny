@@ -25,7 +25,7 @@
         </div>
         <div class="col-md-4">
             <input type="text" name="email" class="form-control" placeholder="Szukaj po e-mailu"
-                value="@Context.Request.Query["email"]" />
+                value="@ViewBag.Email" />
 
         </div>
         <div class="col-md-2">
@@ -33,6 +33,13 @@
         </div>
     </div>
 </form>
+
+@if (ViewBag.NotFoundMessage != null)
+{
+    <div class="alert alert-warning mt-3">
+        @ViewBag.NotFoundMessage
+    </div>
+}
 
 
 @if (!string.IsNullOrEmpty(selectedOwnerId) && selectedOwner != null && selectedOwner.Email != "pracownik@punktweterynaryjny.pl")

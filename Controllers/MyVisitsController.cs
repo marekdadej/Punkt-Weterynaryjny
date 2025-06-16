@@ -21,39 +21,64 @@ namespace PunktWeterynaryjny.Controllers
             _userManager = userManager;
         }
 
-        public async Task<IActionResult> Index(string ownerId = null, int? petId = null)
-        {
-            var owners = await _userManager.Users
-                .Where(u => u.Email != "pracownik@punktweterynaryjny.pl")
-                .OrderBy(u => u.Email)
-                .ToListAsync();
-            ViewBag.Owners = owners;
-            ViewBag.SelectedOwnerId = ownerId;
+		public async Task<IActionResult> Index(string ownerId = null, int? petId = null, string email = null)
+		{
+			var owners = await _userManager.Users
+				.Where(u => u.Email != "pracownik@punktweterynaryjny.pl")
+				.OrderBy(u => u.Email)
+				.ToListAsync();
 
-            IQueryable<Animal> petsQuery = _context.Animals.Include(a => a.Owner);
-            if (!string.IsNullOrEmpty(ownerId))
-                petsQuery = petsQuery.Where(a => a.OwnerId == ownerId);
-            var pets = await petsQuery.OrderBy(a => a.Name).ToListAsync();
-            ViewBag.Pets = pets;
-            ViewBag.SelectedPetId = petId;
+			ViewBag.Owners = owners;
+			ViewBag.SelectedOwnerId = ownerId;
 
-            IQueryable<Visit> visitsQuery = _context.Visits
-                .Include(v => v.Pet)
-                .ThenInclude(p => p.Owner);
+			// Jeśli podano email i NIE wybrano ownerId — szukamy użytkownika po e-mailu
+			if (!string.IsNullOrEmpty(email) && string.IsNullOrEmpty(ownerId))
+			{
+				var user = await _userManager.FindByEmailAsync(email);
+				if (user != null)
+				{
+					ownerId = user.Id;
+					ViewBag.SelectedOwnerId = user.Id;
 
-            if (!string.IsNullOrEmpty(ownerId))
-                visitsQuery = visitsQuery.Where(v => v.Pet.OwnerId == ownerId);
-            if (petId.HasValue)
-                visitsQuery = visitsQuery.Where(v => v.PetId == petId.Value);
+					if (!owners.Any(o => o.Id == user.Id))
+					{
+						owners.Insert(0, user); // dodaj do listy rozwijanej
+					}
+				}
+				else
+				{
+					ViewBag.NotFoundMessage = $"Nie znaleziono użytkownika o adresie e-mail: {email}";
+				}
 
-            var visits = await visitsQuery
-                .OrderByDescending(v => v.VisitDate)
-                .ToListAsync();
+				ViewBag.Email = ""; // zawsze czyść pole
+			}
 
-            return View(visits);
-        }
+			IQueryable<Animal> petsQuery = _context.Animals.Include(a => a.Owner);
+			if (!string.IsNullOrEmpty(ownerId))
+				petsQuery = petsQuery.Where(a => a.OwnerId == ownerId);
 
-        [HttpGet]
+			var pets = await petsQuery.OrderBy(a => a.Name).ToListAsync();
+			ViewBag.Pets = pets;
+			ViewBag.SelectedPetId = petId;
+
+			IQueryable<Visit> visitsQuery = _context.Visits
+				.Include(v => v.Pet)
+				.ThenInclude(p => p.Owner);
+
+			if (!string.IsNullOrEmpty(ownerId))
+				visitsQuery = visitsQuery.Where(v => v.Pet.OwnerId == ownerId);
+			if (petId.HasValue)
+				visitsQuery = visitsQuery.Where(v => v.PetId == petId.Value);
+
+			var visits = await visitsQuery
+				.OrderByDescending(v => v.VisitDate)
+				.ToListAsync();
+
+			return View(visits);
+		}
+
+
+		[HttpGet]
         public async Task<IActionResult> Add(string ownerId = null, int? petId = null)
         {
             var owners = await _userManager.Users

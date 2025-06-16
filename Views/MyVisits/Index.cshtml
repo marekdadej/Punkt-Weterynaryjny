@@ -9,34 +9,42 @@
 
 <h2>Ewidencja wizyt</h2>
 
-<form method="get" class="mb-3 row">
-    <div class="col-md-4">
-        <select name="ownerId" class="form-select" onchange="this.form.submit()">
-            <option value="">-- Wszyscy właściciele --</option>
-            @if (owners != null)
-            {
-                foreach (var owner in owners)
+<form method="get" class="mb-3">
+    <div class="row mb-2">
+        <div class="col-md-4">
+            <label for="ownerId" class="form-label">Wybierz właściciela</label>
+            <select name="ownerId" class="form-select" onchange="this.form.submit()">
+                <option value="">-- Wszyscy właściciele --</option>
+                @if (owners != null)
                 {
-                    var selected = owner.Id == selectedOwnerId ? "selected=\"selected\"" : "";
-                    @:<option value="@owner.Id" @Html.Raw(selected)>@owner.Email</option>
+                    foreach (var owner in owners)
+                    {
+                        var selected = owner.Id == selectedOwnerId ? "selected=\"selected\"" : "";
+                        @:<option value="@owner.Id" @Html.Raw(selected)>@owner.Email</option>
+                    }
                 }
-            }
-        </select>
+            </select>
+        </div>
     </div>
-    <div class="col-md-4">
-        <select name="petId" class="form-select" onchange="this.form.submit()">
-            <option value="">-- Wszystkie zwierzęta --</option>
-            @if (pets != null)
-            {
-                foreach (var pet in pets)
-                {
-                    var selected = pet.Id == selectedPetId ? "selected=\"selected\"" : "";
-                    @:<option value="@pet.Id" @Html.Raw(selected)>@pet.Name</option>
-                }
-            }
-        </select>
+
+    <div class="row align-items-end">
+        <div class="col-md-4">
+            <label for="email" class="form-label">Szukaj po e-mailu</label>
+            <input type="text" name="email" class="form-control" placeholder="np. jan@kowalski.pl"
+                   value="@ViewBag.Email" />
+        </div>
+        <div class="col-md-2">
+            <button type="submit" class="btn btn-primary">Szukaj</button>
+        </div>
     </div>
 </form>
+
+@if (ViewBag.NotFoundMessage != null)
+{
+    <div class="alert alert-warning mt-3">
+        @ViewBag.NotFoundMessage
+    </div>
+}
 
 <table class="table table-striped">
     <thead>

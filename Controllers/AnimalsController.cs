@@ -56,6 +56,7 @@ namespace PunktWeterynaryjny.Controllers
 				{
 					ViewBag.NotFoundMessage = $"Nie znaleziono użytkownika o adresie e-mail: {email}";
 				}
+				ViewBag.Email = "";
 			}
 
 			var animals = await animalsQuery.ToListAsync();
