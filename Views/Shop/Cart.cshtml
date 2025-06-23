@@ -30,7 +30,12 @@ else
                         <td>@Model[i].ProductName</td>
                         <td>@Model[i].Price zł</td>
                         <td>
-                            <input type="number" name="quantities[@i]" value="@Model[i].Quantity" min="1" class="form-control" form="updateForm" />
+                            <input type="number" name="quantities[@i]"
+                                   value="@Model[i].Quantity"
+                                   min="1"
+                                   max="999"
+                                   class="form-control" form="updateForm" />
+
                             <input type="hidden" name="productIds[@i]" value="@Model[i].ProductId" form="updateForm" />
                         </td>
                         <td>@(Model[i].Price * Model[i].Quantity) zł</td>

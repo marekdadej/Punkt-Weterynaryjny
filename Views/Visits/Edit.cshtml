@@ -8,24 +8,114 @@
 
 <form asp-action="Edit" method="post">
     <input type="hidden" asp-for="Id" />
+
     <div class="form-group">
         <label for="PetId">Wybierz zwierzaka:</label>
         <select asp-for="PetId" class="form-control" asp-items="@(new SelectList(ViewBag.Pets, "Id", "Name", Model.PetId))"></select>
         <span asp-validation-for="PetId" class="text-danger"></span>
     </div>
-    <div class="form-group">
-        <label asp-for="VisitDate">Data i godzina wizyty</label>
-        <input asp-for="VisitDate" type="datetime-local" class="form-control" value="@Model.VisitDate.ToString("yyyy-MM-ddTHH:mm")" />
-        <span asp-validation-for="VisitDate" class="text-danger"></span>
+
+    <div class="form-group mt-3">
+        <label>Data wizyty:</label>
+        <input type="text" id="dateInput" class="form-control" placeholder="Kliknij, aby wybrać datę" readonly />
     </div>
-    <div class="form-group">
+
+    <div class="form-group mt-3">
+        <label>Wybierz godzinę:</label>
+        <div id="hoursList" class="d-flex flex-wrap gap-2"></div>
+    </div>
+
+    <input asp-for="VisitDate" type="hidden" id="VisitDate" />
+    <span asp-validation-for="VisitDate" class="text-danger"></span>
+
+    <div class="form-group mt-3">
         <label asp-for="Description">Opis wizyty (opcjonalnie):</label>
         <textarea asp-for="Description" class="form-control"></textarea>
     </div>
-    <button type="submit" class="btn btn-primary">Zapisz zmiany</button>
-    <a asp-action="MyVisits" class="btn btn-secondary">Anuluj</a>
+
+    <button type="submit" class="btn btn-primary mt-3">Zapisz zmiany</button>
+    <a asp-action="MyVisits" class="btn btn-secondary mt-3">Anuluj</a>
 </form>
 
 @section Scripts {
-    @await Html.PartialAsync("_ValidationScriptsPartial")
+    <partial name="_ValidationScriptsPartial" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <script>
+        flatpickr("#dateInput", {
+            dateFormat: "Y-m-d",
+            allowInput: false,
+            minDate: "today",
+            onChange: function (selectedDates, dateStr) {
+                document.getElementById("dateInput").value = dateStr;
+                document.getElementById("VisitDate").value = ""; // wyczyść dotychczasowy wybór
+
+                fetch(`/Visits/GetAvailableHours?date=${dateStr}`)
+                    .then(res => res.json())
+                    .then(hours => {
+                        const container = document.getElementById("hoursList");
+                        container.innerHTML = "";
+
+                        if (hours.length === 0) {
+                            container.innerHTML = "<div class='text-danger'>Brak dostępnych godzin</div>";
+                            return;
+                        }
+
+                        hours.forEach(hour => {
+                            const btn = document.createElement("button");
+                            btn.type = "button";
+                            btn.textContent = hour;
+                            btn.className = "btn btn-outline-primary m-1";
+                            btn.onclick = () => {
+                                document.getElementById("VisitDate").value = dateStr + "T" + hour;
+                                document.querySelectorAll("#hoursList button").forEach(b => b.classList.remove("active"));
+                                btn.classList.add("active");
+                            };
+                            container.appendChild(btn);
+                        });
+                    });
+            }
+        });
+
+        // Ustaw domyślną datę/godzinę jeśli edytujemy
+        window.addEventListener("DOMContentLoaded", function () {
+            const visitDate = "@Model.VisitDate.ToString("yyyy-MM-ddTHH:mm")";
+            const datePart = visitDate.substring(0, 10);
+            const timePart = visitDate.substring(11, 16);
+            document.getElementById("dateInput").value = datePart;
+            document.getElementById("VisitDate").value = visitDate;
+
+            // Załaduj dostępne godziny i zaznacz aktualną
+            fetch(`/Visits/GetAvailableHours?date=${datePart}`)
+                .then(res => res.json())
+                .then(hours => {
+                    const container = document.getElementById("hoursList");
+                    container.innerHTML = "";
+
+                    if (hours.length === 0) {
+                        container.innerHTML = "<div class='text-danger'>Brak dostępnych godzin</div>";
+                        return;
+                    }
+
+                    hours.forEach(hour => {
+                        const btn = document.createElement("button");
+                        btn.type = "button";
+                        btn.textContent = hour;
+                        btn.className = "btn btn-outline-primary m-1";
+
+                        if (hour === timePart) {
+                            btn.classList.add("active");
+                        }
+
+                        btn.onclick = () => {
+                            document.getElementById("VisitDate").value = datePart + "T" + hour;
+                            document.querySelectorAll("#hoursList button").forEach(b => b.classList.remove("active"));
+                            btn.classList.add("active");
+                        };
+                        container.appendChild(btn);
+                    });
+                });
+        });
+    </script>
 }

@@ -1,11 +1,24 @@
 @model IEnumerable<PunktWeterynaryjny.Models.Product>
 @{
-    ViewData["Title"] = "Kup leki";
+    @if (User.IsInRole("Pracownik"))
+    {
+        ViewData["Title"] = "Zarządzaj produktami";
+    }
+    else
+    {
+        ViewData["Title"] = "Kup leki";
+    }
 }
 
 <h2>Kup leki</h2>
 
 <div class="row">
+
+    @if (User.IsInRole("Pracownik"))
+    {
+        <a asp-controller="Shop" asp-action="CreateProduct" class="btn btn-success mb-3">Dodaj produkt</a>
+    }
+
     @foreach (var product in Model)
     {
         <div class="col-md-4 mb-4">
@@ -14,10 +27,31 @@
                     <h5 class="card-title">@product.Name</h5>
                     <p class="card-text">@product.Description</p>
                     <p class="card-text"><strong>Cena:</strong> @product.Price zł</p>
+                    <p class="card-text"><strong>Stan magazynowy:</strong> @product.Stock szt.</p>
                     <form asp-controller="Shop" asp-action="AddToCart" method="post">
                         <input type="hidden" name="id" value="@product.Id" />
-                        <button type="submit" class="btn btn-primary">Dodaj do koszyka</button>
+                        @if (!User.IsInRole("Pracownik"))
+                        {
+                            @if (product.Stock > 0)
+                            {
+                                <form asp-controller="Shop" asp-action="AddToCart" method="post">
+                                    <input type="hidden" name="id" value="@product.Id" />
+                                    <button type="submit" class="btn btn-primary">Dodaj do koszyka</button>
+                                </form>
+                            }
+                            else
+                            {
+                                <div class="text-danger fw-bold">Produkt niedostępny</div>
+                            }
+                        }
                     </form>
+
+                    @if (User.IsInRole("Pracownik"))
+                    {
+                        <hr />
+                        <a asp-controller="Shop" asp-action="EditProduct" asp-route-id="@product.Id" class="btn btn-sm btn-warning me-1">Edytuj</a>
+                        <a asp-controller="Shop" asp-action="DeleteProduct" asp-route-id="@product.Id" class="btn btn-sm btn-danger">Usuń</a>
+                    }
                 </div>
             </div>
         </div>

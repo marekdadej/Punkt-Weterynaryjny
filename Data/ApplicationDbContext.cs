@@ -23,9 +23,9 @@ namespace PunktWeterynaryjny.Data
 			base.OnModelCreating(builder);
 
 			builder.Entity<Product>().HasData(
-				new Product { Id = 1, Name = "Lek przeciwbólowy", Description = "Skuteczny lek na ból", Price = 19.99m },
-				new Product { Id = 2, Name = "Witamina dla psa", Description = "Suplement witaminowy", Price = 29.50m },
-				new Product { Id = 3, Name = "Preparat na pch³y", Description = "Ochrona przed pch³ami", Price = 49.00m }
+				new Product { Id = 1, Name = "Lek przeciwbólowy", Description = "Skuteczny lek na ból", Price = 19.99m, Stock = 5 },
+				new Product { Id = 2, Name = "Witamina dla psa", Description = "Suplement witaminowy", Price = 29.50m, Stock = 10 },
+				new Product { Id = 3, Name = "Preparat na pch³y", Description = "Ochrona przed pch³ami", Price = 49.00m, Stock = 15 }
 			);
 		}
 	}

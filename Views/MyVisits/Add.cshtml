@@ -11,53 +11,100 @@
         <label asp-for="PetId" class="form-label">Zwierzę</label>
         <select asp-for="PetId" class="form-select" required>
             <option value="">-- Wybierz zwierzę --</option>
-            @if (pets != null)
+            @foreach (var pet in pets ?? Enumerable.Empty<PunktWeterynaryjny.Models.Animal>())
             {
-                foreach (var pet in pets)
-                {
-                    <text>
-                        <option value="@pet.Id">@pet.Name (@pet.Owner?.Email)</option>
-                    </text>
-                }
+                <option value="@pet.Id">@pet.Name (@pet.Owner?.Email)</option>
             }
         </select>
         <span asp-validation-for="PetId" class="text-danger"></span>
     </div>
+
     <div class="form-group mb-3">
-        <label asp-for="VisitDate" class="form-label">Data wizyty</label>
-        <input asp-for="VisitDate" type="datetime-local" class="form-control" />
-        <span asp-validation-for="VisitDate" class="text-danger"></span>
+        <label>Data wizyty</label>
+        <input type="text" id="dateInput" class="form-control" placeholder="Kliknij, aby wybrać datę" readonly />
     </div>
+
+    <div class="form-group mb-3">
+        <label>Dostępne godziny</label>
+        <div id="hoursList" class="d-flex flex-wrap gap-2"></div>
+    </div>
+
+    <!-- ukryty input do przesłania -->
+    <input asp-for="VisitDate" type="hidden" id="VisitDate" />
+    <span asp-validation-for="VisitDate" class="text-danger"></span>
+
     <div class="form-group mb-3">
         <label asp-for="Description" class="form-label">Opis</label>
         <input asp-for="Description" class="form-control" />
         <span asp-validation-for="Description" class="text-danger"></span>
     </div>
+
     <div class="form-group mb-3">
         <label asp-for="Status" class="form-label">Status</label>
         <select asp-for="Status" class="form-select">
             @foreach (var status in Enum.GetValues(typeof(PunktWeterynaryjny.Models.VisitStatus)))
             {
-                <text>
-                    <option value="@((int)status)">@status</option>
-                </text>
+                <option value="@((int)status)">@status</option>
             }
         </select>
     </div>
+
     <div class="form-group mb-3">
         <label asp-for="IsOutVisit" class="form-label">Typ wizyty</label>
         <select asp-for="IsOutVisit" class="form-select">
-            <text><option value="false">Zwykła</option></text>
-            <text><option value="true">Wyjazdowa</option></text>
+            <option value="false">Zwykła</option>
+            <option value="true">Wyjazdowa</option>
         </select>
     </div>
+
     <div class="form-group mb-3">
         <label asp-for="OutVisitAddress" class="form-label">Adres wyjazdowej</label>
         <input asp-for="OutVisitAddress" class="form-control" />
     </div>
+
     <button type="submit" class="btn btn-success">Dodaj wizytę</button>
     <a asp-action="Index" class="btn btn-secondary ms-2">Anuluj</a>
 </form>
+
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <script>
+        flatpickr("#dateInput", {
+            dateFormat: "Y-m-d",
+            allowInput: false,
+            minDate: "today",
+            onChange: function (selectedDates, dateStr) {
+                document.getElementById("VisitDate").value = "";
+                const container = document.getElementById("hoursList");
+                container.innerHTML = "<div class='text-muted'>Ładowanie godzin...</div>";
+
+                fetch(`/Visits/GetAvailableHours?date=${dateStr}`)
+                    .then(res => res.json())
+                    .then(hours => {
+                        container.innerHTML = "";
+
+                        if (hours.length === 0) {
+                            container.innerHTML = "<div class='text-danger'>Brak dostępnych godzin</div>";
+                            return;
+                        }
+
+                        hours.forEach(hour => {
+                            const btn = document.createElement("button");
+                            btn.type = "button";
+                            btn.textContent = hour;
+                            btn.className = "btn btn-outline-primary m-1";
+                            btn.onclick = () => {
+                                document.getElementById("VisitDate").value = dateStr + "T" + hour;
+                                document.querySelectorAll("#hoursList button").forEach(b => b.classList.remove("active"));
+                                btn.classList.add("active");
+                            };
+                            container.appendChild(btn);
+                        });
+                    });
+            }
+        });
+    </script>
 }

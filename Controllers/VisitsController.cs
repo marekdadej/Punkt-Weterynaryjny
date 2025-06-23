@@ -151,5 +151,24 @@ namespace PunktWeterynaryjny.Controllers
             TempData["SuccessMessage"] = "Wizyta została anulowana.";
             return RedirectToAction("MyVisits");
         }
-    }
+
+		[HttpGet]
+		public async Task<IActionResult> GetAvailableHours(DateTime date)
+		{
+			var busy = await _context.Visits
+				.Where(v => v.VisitDate.Date == date.Date)
+				.Select(v => v.VisitDate.TimeOfDay)
+				.ToListAsync();
+
+			var all = Enumerable.Range(8, 9) // 8:00–16:30
+				.SelectMany(h => new[] { new TimeSpan(h, 0, 0), new TimeSpan(h, 30, 0) })
+				.Where(t => t < new TimeSpan(17, 0, 0))
+				.ToList();
+
+			var available = all.Except(busy).ToList();
+
+			return Json(available.Select(t => t.ToString(@"hh\:mm")));
+		}
+
+	}
 }

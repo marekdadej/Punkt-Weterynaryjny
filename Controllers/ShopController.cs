@@ -11,53 +11,64 @@ using System.Threading.Tasks;
 
 namespace PunktWeterynaryjny.Controllers
 {
-    public class ShopController : Controller
-    {
-        private readonly ApplicationDbContext _context;
-        private readonly UserManager<IdentityUser> _userManager;
+	public class ShopController : Controller
+	{
+		private readonly ApplicationDbContext _context;
+		private readonly UserManager<IdentityUser> _userManager;
 
-        public ShopController(ApplicationDbContext context, UserManager<IdentityUser> userManager)
-        {
-            _context      = context;
-            _userManager  = userManager;
-        }
+		public ShopController(ApplicationDbContext context, UserManager<IdentityUser> userManager)
+		{
+			_context = context;
+			_userManager = userManager;
+		}
 
-        public IActionResult Index()
-        {
-            var products = _context.Products.ToList();
-			Console.WriteLine($"Liczba produktów: {products.Count}");
+		public IActionResult Index()
+		{
+			var products = _context.Products.ToList();
 			return View(products);
-        }
+		}
 
-        [HttpPost]
-        public IActionResult AddToCart(int id)
-        {
-            var product = _context.Products.FirstOrDefault(p => p.Id == id);
-            if (product == null) return NotFound();
+		[HttpPost]
+		public IActionResult AddToCart(int id)
+		{
+			var product = _context.Products.FirstOrDefault(p => p.Id == id);
+			if (product == null) return NotFound();
 
-            var cart = HttpContext.Session.GetObject<List<CartItem>>("Cart") 
-                       ?? new List<CartItem>();
+			var cart = HttpContext.Session.GetObject<List<CartItem>>("Cart") ?? new List<CartItem>();
+			var item = cart.FirstOrDefault(c => c.ProductId == id);
 
-            var item = cart.FirstOrDefault(c => c.ProductId == id);
-            if (item != null)
-            {
-                item.Quantity++;
-            }
-            else
-            {
-                cart.Add(new CartItem
-                {
-                    ProductId   = product.Id,
-                    ProductName = product.Name,
-                    Price       = product.Price,
-                    Quantity    = 1
-                });
-            }
+			if (item != null)
+			{
+				if (product.Stock < item.Quantity + 1)
+				{
+					TempData["ErrorMessage"] = "Brak wystarczającej ilości produktu.";
+					return RedirectToAction("Index");
+				}
+				item.Quantity++;
+			}
+			else
+			{
+				if (product.Stock < 1)
+				{
+					TempData["ErrorMessage"] = "Produkt jest niedostępny.";
+					return RedirectToAction("Index");
+				}
 
-            HttpContext.Session.SetObject("Cart", cart);
-            TempData["SuccessMessage"] = "Dodano do koszyka!";
-            return RedirectToAction("Index");
-        }
+				cart.Add(new CartItem
+				{
+					ProductId = product.Id,
+					ProductName = product.Name,
+					Price = product.Price,
+					Quantity = 1
+				});
+			}
+
+			HttpContext.Session.SetObject("Cart", cart);
+			TempData["SuccessMessage"] = "Dodano do koszyka!";
+			return RedirectToAction("Index");
+		}
+
+
 		[HttpPost]
 		public IActionResult UpdateCart(int[] productIds, int[] quantities)
 		{
@@ -87,33 +98,41 @@ namespace PunktWeterynaryjny.Controllers
 		}
 
 		public IActionResult Cart()
-        {
-            var cart = HttpContext.Session.GetObject<List<CartItem>>("Cart") 
-                       ?? new List<CartItem>();
-            return View(cart);
-        }
+		{
+			var cart = HttpContext.Session.GetObject<List<CartItem>>("Cart") ?? new List<CartItem>();
+			return View(cart);
+		}
 
-        // GET: Checkout – wyświetlenie podsumowania + formularza
-        [Authorize]
-        public IActionResult Checkout()
-        {
-            var cart = HttpContext.Session.GetObject<List<CartItem>>("Cart") 
-                       ?? new List<CartItem>();
-
-            var vm = new CheckoutViewModel
-            {
-                CartItems = cart
-            };
-            return View(vm);
-        }
-
-		// POST: Checkout – finalizacja zamówienia
 		[Authorize]
-        [HttpPost]
-        public async Task<IActionResult> Checkout(CheckoutViewModel model)
-        {
-            if (!ModelState.IsValid)
-                return View(model);
+		public async Task<IActionResult> Checkout()
+		{
+			var cart = HttpContext.Session.GetObject<List<CartItem>>("Cart") ?? new List<CartItem>();
+
+			foreach (var item in cart)
+			{
+				var product = await _context.Products.FindAsync(item.ProductId);
+				if (product == null || product.Stock < item.Quantity)
+				{
+					TempData["ErrorMessage"] = $"Brak wystarczającej ilości produktu: {item.ProductName}";
+					return RedirectToAction("Cart");
+				}
+			}
+
+			var vm = new CheckoutViewModel
+			{
+				CartItems = cart
+			};
+
+			return View(vm);
+		}
+
+
+		[Authorize]
+		[HttpPost]
+		public async Task<IActionResult> Checkout(CheckoutViewModel model)
+		{
+			if (!ModelState.IsValid)
+				return View(model);
 
 			var cart = HttpContext.Session.GetObject<List<CartItem>>("Cart") ?? new List<CartItem>();
 			if (!cart.Any())
@@ -122,30 +141,99 @@ namespace PunktWeterynaryjny.Controllers
 				return RedirectToAction("Cart");
 			}
 
-
 			var userId = _userManager.GetUserId(User)!;
-            var order = new Order
-            {
-                UserId          = userId,
-                OrderDate       = DateTime.Now,
-                Status          = OrderStatus.Przyjęte,
-                ShippingAddress = model.ShippingAddress,
-                ContactPhone    = model.ContactPhone,
-                OrderItems      = cart.Select(c => new OrderItem
-                {
-                    ProductId = c.ProductId,
-                    Quantity  = c.Quantity,
-                    Price     = c.Price
-                }).ToList()
-            };
+			var order = new Order
+			{
+				UserId = userId,
+				OrderDate = DateTime.Now,
+				Status = OrderStatus.Przyjęte,
+				ShippingAddress = model.ShippingAddress,
+				ContactPhone = model.ContactPhone,
+				OrderItems = cart.Select(c => new OrderItem
+				{
+					ProductId = c.ProductId,
+					Quantity = c.Quantity,
+					Price = c.Price
+				}).ToList()
+			};
 
-            _context.Orders.Add(order);
-            await _context.SaveChangesAsync();
+			_context.Orders.Add(order);
 
+			// Odejmij stany magazynowe:
+			foreach (var item in order.OrderItems)
+			{
+				var product = await _context.Products.FindAsync(item.ProductId);
+				if (product != null)
+				{
+					product.Stock -= item.Quantity;
+				}
+			}
+
+			await _context.SaveChangesAsync();
+
+			// Wyczyść koszyk
 			HttpContext.Session.SetObject("Cart", new List<CartItem>());
 
 			TempData["SuccessMessage"] = "Zamówienie zostało złożone pomyślnie!";
-            return RedirectToAction("Index");
-        }
-    }
+			return RedirectToAction("Index");
+		}
+
+
+		// -------------------------------
+		// Zarządzanie produktami (dla pracownika)
+		// -------------------------------
+
+		[Authorize(Roles = "Pracownik")]
+		[HttpGet]
+		public IActionResult CreateProduct()
+		{
+			return View("EditProduct", new Product());
+		}
+
+		[Authorize(Roles = "Pracownik")]
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		public async Task<IActionResult> CreateProduct(Product product)
+		{
+			if (!ModelState.IsValid)
+				return View("EditProduct", product);
+
+			_context.Products.Add(product);
+			await _context.SaveChangesAsync();
+			return RedirectToAction("Index");
+		}
+
+		[Authorize(Roles = "Pracownik")]
+		[HttpGet]
+		public async Task<IActionResult> EditProduct(int id)
+		{
+			var product = await _context.Products.FindAsync(id);
+			if (product == null) return NotFound();
+			return View("EditProduct", product);
+		}
+
+		[Authorize(Roles = "Pracownik")]
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		public async Task<IActionResult> EditProduct(Product product)
+		{
+			if (!ModelState.IsValid)
+				return View("EditProduct", product);
+
+			_context.Products.Update(product);
+			await _context.SaveChangesAsync();
+			return RedirectToAction("Index");
+		}
+
+		[Authorize(Roles = "Pracownik")]
+		[HttpGet]
+		public async Task<IActionResult> DeleteProduct(int id)
+		{
+			var product = await _context.Products.FindAsync(id);
+			if (product == null) return NotFound();
+
+			return View("DeleteProduct", product); // ← to musi być!
+		}
+
+	}
 }

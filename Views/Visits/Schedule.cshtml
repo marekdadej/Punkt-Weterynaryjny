@@ -6,7 +6,6 @@
 
 <h2>Umów wizytę</h2>
 
-
 <div asp-validation-summary="All" class="text-danger"></div>
 
 <form asp-action="Schedule" method="post">
@@ -15,20 +14,70 @@
         <select asp-for="PetId" class="form-control" asp-items="@(new SelectList(ViewBag.Pets, "Id", "Name"))"></select>
         <span asp-validation-for="PetId" class="text-danger"></span>
     </div>
-    <div class="form-group">
-        <label asp-for="VisitDate">Data i godzina wizyty</label>
-        <input asp-for="VisitDate" type="datetime-local" class="form-control" />
-        <span asp-validation-for="VisitDate" class="text-danger"></span>
+
+    <div class="form-group mt-3">
+        <label for="dateInput">Data wizyty:</label>
+        <input type="text" id="dateInput" class="form-control" readonly placeholder="Kliknij, aby wybrać datę" />
+        <input type="hidden" id="VisitDate" name="VisitDate" />
     </div>
-    <div class="form-group">
+
+    <div class="form-group mt-3">
+        <label>Dostępne godziny:</label>
+        <div id="hoursList" class="d-flex flex-wrap gap-2"></div>
+    </div>
+
+    <input asp-for="VisitDate" type="hidden" id="VisitDate" />
+    <span asp-validation-for="VisitDate" class="text-danger"></span>
+
+    <div class="form-group mt-3">
         <label asp-for="Description">Opis wizyty (opcjonalnie):</label>
         <textarea asp-for="Description" class="form-control"></textarea>
     </div>
-    <button type="submit" class="btn btn-primary">Umów wizytę</button>
+
+    <button type="submit" class="btn btn-primary mt-3">Umów wizytę</button>
 </form>
 
-
-
 @section Scripts {
-    @await Html.PartialAsync("_ValidationScriptsPartial")
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <script>
+        flatpickr("#dateInput", {
+            dateFormat: "Y-m-d",
+            allowInput: false,       // nie pozwala pisać ręcznie
+            minDate: "today",
+            onChange: function (selectedDates, dateStr) {
+                // ustaw wartość w hidden input (jeśli potrzebujesz)
+                document.getElementById("dateInput").value = dateStr;
+
+                // załaduj godziny na dany dzień
+                fetch(`/Visits/GetAvailableHours?date=${dateStr}`)
+                    .then(res => res.json())
+                    .then(hours => {
+                        const container = document.getElementById("hoursList");
+                        container.innerHTML = "";
+
+                        if (hours.length === 0) {
+                            container.innerHTML = "<div class='text-danger'>Brak dostępnych godzin</div>";
+                            return;
+                        }
+
+                        hours.forEach(hour => {
+                            const btn = document.createElement("button");
+                            btn.type = "button";
+                            btn.textContent = hour;
+                            btn.className = "btn btn-outline-primary m-1";
+                            btn.onclick = () => {
+                                document.getElementById("VisitDate").value = dateStr + "T" + hour;
+                                document.querySelectorAll("#hoursList button").forEach(b => b.classList.remove("active"));
+                                btn.classList.add("active");
+                            };
+                            container.appendChild(btn);
+                        });
+                    });
+            }
+        });
+    </script>
+
+    </script>
 }

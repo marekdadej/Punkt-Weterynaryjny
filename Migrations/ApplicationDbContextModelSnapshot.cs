@@ -320,6 +320,9 @@ namespace PunktWeterynaryjny.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("Stock")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("Id");
 
                     b.ToTable("Products");
@@ -328,23 +331,26 @@ namespace PunktWeterynaryjny.Migrations
                         new
                         {
                             Id = 1,
-                            Description = "Skuteczny lek na b�l",
-                            Name = "Lek przeciwb�lowy",
-                            Price = 19.99m
+                            Description = "Skuteczny lek na ból",
+                            Name = "Lek przeciwbólowy",
+                            Price = 19.99m,
+                            Stock = 0
                         },
                         new
                         {
                             Id = 2,
                             Description = "Suplement witaminowy",
                             Name = "Witamina dla psa",
-                            Price = 29.50m
+                            Price = 29.50m,
+                            Stock = 0
                         },
                         new
                         {
                             Id = 3,
-                            Description = "Ochrona przed pch�ami",
-                            Name = "Preparat na pch�y",
-                            Price = 49.00m
+                            Description = "Ochrona przed pchłami",
+                            Name = "Preparat na pchły",
+                            Price = 49.00m,
+                            Stock = 0
                         });
                 });
 
