@@ -67,44 +67,27 @@
 </form>
 
 @section Scripts {
-    <partial name="_ValidationScriptsPartial" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="~/js/visitScheduler.js"></script>
 
     <script>
-        flatpickr("#dateInput", {
-            dateFormat: "Y-m-d",
-            allowInput: false,
-            minDate: "today",
-            onChange: function (selectedDates, dateStr) {
-                document.getElementById("VisitDate").value = "";
-                const container = document.getElementById("hoursList");
-                container.innerHTML = "<div class='text-muted'>Ładowanie godzin...</div>";
+        document.addEventListener("DOMContentLoaded", function () {
 
-                fetch(`/Visits/GetAvailableHours?date=${dateStr}`)
-                    .then(res => res.json())
-                    .then(hours => {
-                        container.innerHTML = "";
-
-                        if (hours.length === 0) {
-                            container.innerHTML = "<div class='text-danger'>Brak dostępnych godzin</div>";
-                            return;
-                        }
-
-                        hours.forEach(hour => {
-                            const btn = document.createElement("button");
-                            btn.type = "button";
-                            btn.textContent = hour;
-                            btn.className = "btn btn-outline-primary m-1";
-                            btn.onclick = () => {
-                                document.getElementById("VisitDate").value = dateStr + "T" + hour;
-                                document.querySelectorAll("#hoursList button").forEach(b => b.classList.remove("active"));
-                                btn.classList.add("active");
-                            };
-                            container.appendChild(btn);
-                        });
-                    });
+            if (typeof initVisitScheduler === 'function') {
+                initVisitScheduler("dateInput", "hoursList", "VisitDate");
+            } else {
+                console.error("initVisitScheduler nie została załadowana");
             }
+
+            // Walidacja przed wysłaniem formularza
+            document.querySelector('form').addEventListener('submit', function (e) {
+                const visitValue = document.getElementById("VisitDate").value;
+                if (!visitValue) {
+                    alert("Proszę wybrać datę i godzinę wizyty.");
+                    e.preventDefault();
+                }
+            });
         });
     </script>
 }

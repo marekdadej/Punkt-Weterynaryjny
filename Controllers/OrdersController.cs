@@ -27,6 +27,7 @@ namespace PunktWeterynaryjny.Controllers
 				.Where(o => o.UserId == userId)
 				.Include(o => o.OrderItems)
 				.ThenInclude(oi => oi.Product)
+				.OrderByDescending(o => o.OrderDate)
 				.ToListAsync();
 
 			var viewModels = orders.Select(o => new OrderViewModel
@@ -42,13 +43,14 @@ namespace PunktWeterynaryjny.Controllers
 
 
 		// Dla pracownika: zarządzanie zamówieniami
-		[Authorize(Roles = "Pracownik")]
-        public async Task<IActionResult> Manage()
+		[Authorize(Roles = "Pracownik,Właściciel")]
+		public async Task<IActionResult> Manage()
         {
             var orders = await _context.Orders
                 .Include(o => o.OrderItems)
                 .ThenInclude(oi => oi.Product)
-                .ToListAsync();
+				.OrderByDescending(o => o.OrderDate)
+				.ToListAsync();
 
 			var viewModels = orders.Select(o => new OrderViewModel
 			{
@@ -61,9 +63,9 @@ namespace PunktWeterynaryjny.Controllers
 			return View(viewModels);
         }
 
-        // Pracownik: zmiana statusu zamówienia
-        [Authorize(Roles = "Pracownik")]
-        [HttpPost]
+		// Pracownik: zmiana statusu zamówienia
+		[Authorize(Roles = "Pracownik,Właściciel")]
+		[HttpPost]
         public async Task<IActionResult> UpdateStatus(int orderId, OrderStatus status)
         {
             var order = await _context.Orders.FindAsync(orderId);
@@ -95,14 +97,15 @@ namespace PunktWeterynaryjny.Controllers
 		public async Task<IActionResult> OrderDetails(int id)
 		{
 			var userId = _userManager.GetUserId(User);
-			var isEmployee = User.IsInRole("Pracownik");
+			var isEmployeeOrOwner = User.IsInRole("Pracownik") || User.IsInRole("Właściciel");
+
 
 			var orderQuery = _context.Orders
 				.Include(o => o.OrderItems)
 				.ThenInclude(oi => oi.Product)
 				.AsQueryable();
 
-			if (!isEmployee)
+			if (!isEmployeeOrOwner)
 			{
 				// zwykły użytkownik może zobaczyć tylko swoje zamówienie
 				orderQuery = orderQuery.Where(o => o.UserId == userId);

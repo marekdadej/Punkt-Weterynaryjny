@@ -5,11 +5,12 @@ using Microsoft.EntityFrameworkCore;
 using PunktWeterynaryjny.Data;
 using PunktWeterynaryjny.Models;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace PunktWeterynaryjny.Controllers
 {
-    [Authorize(Roles = "Pracownik")]
+    [Authorize(Roles = "Pracownik,Właściciel")]
     public class MyVisitsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -200,5 +201,37 @@ namespace PunktWeterynaryjny.Controllers
             TempData["SuccessMessage"] = "Wizyta usunięta!";
             return RedirectToAction(nameof(Index));
         }
-    }
+
+		[Authorize(Roles = "Właściciel")]
+		[HttpGet]
+		public async Task<IActionResult> ExportToCsv()
+		{
+			var visits = await _context.Visits
+				.Include(v => v.Pet)
+				.ThenInclude(p => p.Owner)
+				.OrderBy(v => v.VisitDate)
+				.ToListAsync();
+
+			var sb = new StringBuilder();
+			sb.AppendLine("Data,Właściciel,Zwierzę,Opis,Typ wizyty,Status");
+
+			foreach (var v in visits)
+			{
+				var owner = v.Pet?.Owner?.Email ?? "brak";
+				var pet = v.Pet?.Name ?? "brak";
+				var desc = v.Description?.Replace(",", " ") ?? "";
+				var type = v.IsOutVisit ? "Wyjazdowa" : "Zwykła";
+
+				sb.AppendLine($"{v.VisitDate:yyyy-MM-dd HH:mm},{owner},{pet},{desc},{type},{v.Status}");
+			}
+
+			var csv = sb.ToString();
+			var bom = Encoding.UTF8.GetPreamble(); // BOM = EF BB BF
+			var body = Encoding.UTF8.GetBytes(csv);
+			var final = bom.Concat(body).ToArray();
+
+			return File(final, "text/csv; charset=utf-8", "wizyty.csv");
+
+		}
+	}
 }

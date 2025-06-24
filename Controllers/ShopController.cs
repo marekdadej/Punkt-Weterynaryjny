@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using PunktWeterynaryjny.Data;
 using PunktWeterynaryjny.Helpers;
 using PunktWeterynaryjny.Models;
@@ -235,5 +236,20 @@ namespace PunktWeterynaryjny.Controllers
 			return View("DeleteProduct", product); // ← to musi być!
 		}
 
+		[Authorize(Roles = "Pracownik")]
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		public async Task<IActionResult> ConfirmDeleteProduct(int id)
+		{
+			var product = await _context.Products.FindAsync(id);
+			if (product == null)
+				return NotFound();
+
+			_context.Products.Remove(product);
+			await _context.SaveChangesAsync();
+
+			TempData["SuccessMessage"] = "Produkt został usunięty.";
+			return RedirectToAction("Index"); // lub inna akcja listująca
+		}
 	}
 }

@@ -38,84 +38,29 @@
 </form>
 
 @section Scripts {
-    <partial name="_ValidationScriptsPartial" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="~/js/visitScheduler.js"></script>
 
     <script>
-        flatpickr("#dateInput", {
-            dateFormat: "Y-m-d",
-            allowInput: false,
-            minDate: "today",
-            onChange: function (selectedDates, dateStr) {
-                document.getElementById("dateInput").value = dateStr;
-                document.getElementById("VisitDate").value = ""; // wyczyść dotychczasowy wybór
+        document.addEventListener("DOMContentLoaded", function () {
+            const selectedTime = '@Model.VisitDate.ToString("HH\\:mm")';
+            const fullDateTime = '@Model.VisitDate.ToString("yyyy-MM-ddTHH:mm")';
 
-                fetch(`/Visits/GetAvailableHours?date=${dateStr}`)
-                    .then(res => res.json())
-                    .then(hours => {
-                        const container = document.getElementById("hoursList");
-                        container.innerHTML = "";
-
-                        if (hours.length === 0) {
-                            container.innerHTML = "<div class='text-danger'>Brak dostępnych godzin</div>";
-                            return;
-                        }
-
-                        hours.forEach(hour => {
-                            const btn = document.createElement("button");
-                            btn.type = "button";
-                            btn.textContent = hour;
-                            btn.className = "btn btn-outline-primary m-1";
-                            btn.onclick = () => {
-                                document.getElementById("VisitDate").value = dateStr + "T" + hour;
-                                document.querySelectorAll("#hoursList button").forEach(b => b.classList.remove("active"));
-                                btn.classList.add("active");
-                            };
-                            container.appendChild(btn);
-                        });
-                    });
+            if (typeof initVisitScheduler === 'function') {
+                initVisitScheduler("dateInput", "hoursList", "VisitDate", selectedTime, fullDateTime);
+            } else {
+                console.error("initVisitScheduler nie została załadowana");
             }
-        });
 
-        // Ustaw domyślną datę/godzinę jeśli edytujemy
-        window.addEventListener("DOMContentLoaded", function () {
-            const visitDate = "@Model.VisitDate.ToString("yyyy-MM-ddTHH:mm")";
-            const datePart = visitDate.substring(0, 10);
-            const timePart = visitDate.substring(11, 16);
-            document.getElementById("dateInput").value = datePart;
-            document.getElementById("VisitDate").value = visitDate;
-
-            // Załaduj dostępne godziny i zaznacz aktualną
-            fetch(`/Visits/GetAvailableHours?date=${datePart}`)
-                .then(res => res.json())
-                .then(hours => {
-                    const container = document.getElementById("hoursList");
-                    container.innerHTML = "";
-
-                    if (hours.length === 0) {
-                        container.innerHTML = "<div class='text-danger'>Brak dostępnych godzin</div>";
-                        return;
-                    }
-
-                    hours.forEach(hour => {
-                        const btn = document.createElement("button");
-                        btn.type = "button";
-                        btn.textContent = hour;
-                        btn.className = "btn btn-outline-primary m-1";
-
-                        if (hour === timePart) {
-                            btn.classList.add("active");
-                        }
-
-                        btn.onclick = () => {
-                            document.getElementById("VisitDate").value = datePart + "T" + hour;
-                            document.querySelectorAll("#hoursList button").forEach(b => b.classList.remove("active"));
-                            btn.classList.add("active");
-                        };
-                        container.appendChild(btn);
-                    });
-                });
+            // Walidacja przed wysłaniem formularza
+            document.querySelector('form').addEventListener('submit', function (e) {
+                const visitValue = document.getElementById("VisitDate").value;
+                if (!visitValue) {
+                    alert("Proszę wybrać datę i godzinę wizyty.");
+                    e.preventDefault();
+                }
+            });
         });
     </script>
 }

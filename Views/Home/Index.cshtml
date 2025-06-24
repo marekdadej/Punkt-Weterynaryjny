@@ -26,6 +26,15 @@
             <a class="btn btn-primary m-2" href="/Animals/Index">Ewidencja zwierząt</a>
             <a class="btn btn-info m-2" href="/MyVisits/Index">Ewidencja wizyt</a>
             <a class="btn btn-warning m-2" href="/Orders/Manage">Zarządzanie zamówieniami</a>
+            <a class="btn btn-warning m-2" href="/Orders/Manage">Zarządzanie produktami</a>
+        }
+        else if (User.IsInRole("Właściciel"))
+        {
+            <a class="btn btn-primary m-2" href="/Animals/Index">Zarządzaj pracownikami</a>
+            <a class="btn btn-info m-2" href="/MyVisits/Index">Wszystkie zamówienia</a>
+            <a class="btn btn-warning m-2" href="/Orders/Manage">Wszystkie wizyty</a>
+            <a class="btn btn-warning m-2" href="/Orders/Manage">Zarządzanie produktami</a>
+            <a class="btn btn-warning m-2" href="/Orders/Manage">Statystyki</a>
         }
         else
         {

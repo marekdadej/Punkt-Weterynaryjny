@@ -40,7 +40,7 @@
     </tfoot>
 </table>
 
-@if (User.IsInRole("Pracownik"))
+@if (User.IsInRole("Pracownik") || User.IsInRole("Właściciel"))
 {
     <a asp-action="Manage" class="btn btn-secondary">Wróć do listy zamówień</a>
 }

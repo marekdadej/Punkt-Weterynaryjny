@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using PunktWeterynaryjny.Data;
 using PunktWeterynaryjny.Models;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace PunktWeterynaryjny.Controllers
@@ -60,24 +61,32 @@ namespace PunktWeterynaryjny.Controllers
             return View();
         }
 
+
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ScheduleOut(Visit model)
         {
             var userId = _userManager.GetUserId(User);
 
-            if (ModelState.IsValid)
-            {
-                model.UserId = userId;
-                model.Status = VisitStatus.Zarejestrowana;
-                model.IsOutVisit = true;
-                _context.Visits.Add(model);
-                await _context.SaveChangesAsync();
-                TempData["SuccessMessage"] = "Wyjazdowa wizyta została umówiona!";
-                return RedirectToAction("MyVisits");
-            }
+			if (model.IsOutVisit && string.IsNullOrWhiteSpace(model.OutVisitAddress))
+			{
+				ModelState.AddModelError("OutVisitAddress", "Adres jest wymagany przy wizycie wyjazdowej.");
+			}
 
-            ViewBag.Pets = await _context.Animals.Where(a => a.OwnerId == userId).ToListAsync();
+			if (ModelState.IsValid)
+			{
+				model.UserId = userId;
+				model.Status = VisitStatus.Zarejestrowana;
+				model.IsOutVisit = true;
+				_context.Visits.Add(model);
+				await _context.SaveChangesAsync();
+				TempData["SuccessMessage"] = "Wyjazdowa wizyta została umówiona!";
+				return RedirectToAction("MyVisits");
+			}
+
+
+			ViewBag.Pets = await _context.Animals.Where(a => a.OwnerId == userId).ToListAsync();
             return View(model);
         }
 
@@ -87,7 +96,7 @@ namespace PunktWeterynaryjny.Controllers
             var visits = await _context.Visits
                 .Include(v => v.Pet)
                 .Where(v => v.UserId == userId)
-                .OrderBy(v => v.VisitDate)
+                .OrderByDescending(v => v.VisitDate)
                 .ToListAsync();
             return View(visits);
         }
@@ -156,7 +165,7 @@ namespace PunktWeterynaryjny.Controllers
 		public async Task<IActionResult> GetAvailableHours(DateTime date)
 		{
 			var busy = await _context.Visits
-				.Where(v => v.VisitDate.Date == date.Date)
+				.Where(v => v.VisitDate.Date == date.Date && v.Status == VisitStatus.Zarejestrowana)
 				.Select(v => v.VisitDate.TimeOfDay)
 				.ToListAsync();
 
@@ -169,6 +178,5 @@ namespace PunktWeterynaryjny.Controllers
 
 			return Json(available.Select(t => t.ToString(@"hh\:mm")));
 		}
-
 	}
 }

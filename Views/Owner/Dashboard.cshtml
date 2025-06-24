@@ -1,0 +1,79 @@
+﻿@{
+    ViewData["Title"] = "Statystyki";
+    var topHours = ViewBag.TopHours as IEnumerable<dynamic>;
+    var topProducts = ViewBag.TopProducts as IEnumerable<dynamic>;
+}
+
+<h2 class="mb-4">📊 Statystyki wizyt i sprzedaży</h2>
+
+<table class="table table-bordered table-striped">
+    <thead class="table-light">
+        <tr>
+            <th colspan="2">🗓 Wizyty</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Wizyty w ostatnich 7 dniach</td>
+            <td>@ViewBag.WeeklyVisits</td>
+        </tr>
+        <tr>
+            <td>Wizyty w tym miesiącu</td>
+            <td>@ViewBag.MonthlyVisits</td>
+        </tr>
+        <tr>
+            <td>Wszystkie wizyty ogółem</td>
+            <td>@ViewBag.TotalVisits</td>
+        </tr>
+        <tr>
+            <td>Wyjazdowe / Zwykłe</td>
+            <td>@ViewBag.OutVisits / @ViewBag.RegularVisits</td>
+        </tr>
+        <tr>
+            <td>TOP 5 najczęstszych godzin</td>
+            <td>
+                <ul class="mb-0">
+                    @foreach (var h in topHours)
+                    {
+                        <li>@h.Hour – @h.Count wizyt</li>
+                    }
+                </ul>
+            </td>
+        </tr>
+    </tbody>
+
+    <thead class="table-light">
+        <tr>
+            <th colspan="2">💰 Sprzedaż</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Liczba zamówień</td>
+            <td>@ViewBag.TotalOrders</td>
+        </tr>
+        <tr>
+            <td>Całkowity przychód</td>
+            <td>@String.Format("{0:N2} zł", ViewBag.TotalRevenue)</td>
+        </tr>
+        <tr>
+            <td>Przychód w ostatnich 7 dniach</td>
+            <td>@String.Format("{0:N2} zł", ViewBag.WeeklyRevenue)</td>
+        </tr>
+        <tr>
+            <td>Przychód w tym miesiącu</td>
+            <td>@String.Format("{0:N2} zł", ViewBag.MonthlyRevenue)</td>
+        </tr>
+        <tr>
+            <td>TOP 5 produktów</td>
+            <td>
+                <ul class="mb-0">
+                    @foreach (var p in topProducts)
+                    {
+                        <li>@p.Name – @p.Quantity szt.</li>
+                    }
+                </ul>
+            </td>
+        </tr>
+    </tbody>
+</table>
