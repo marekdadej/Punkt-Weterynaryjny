@@ -127,7 +127,6 @@ namespace PunktWeterynaryjny.Controllers
 			return View(vm);
 		}
 
-
 		[Authorize]
 		[HttpPost]
 		public async Task<IActionResult> Checkout(CheckoutViewModel model)
@@ -143,6 +142,7 @@ namespace PunktWeterynaryjny.Controllers
 			}
 
 			var userId = _userManager.GetUserId(User)!;
+
 			var order = new Order
 			{
 				UserId = userId,
@@ -150,6 +150,7 @@ namespace PunktWeterynaryjny.Controllers
 				Status = OrderStatus.Przyjęte,
 				ShippingAddress = model.ShippingAddress,
 				ContactPhone = model.ContactPhone,
+				PaymentMethod = model.SelectedPaymentMethod,
 				OrderItems = cart.Select(c => new OrderItem
 				{
 					ProductId = c.ProductId,
@@ -160,7 +161,6 @@ namespace PunktWeterynaryjny.Controllers
 
 			_context.Orders.Add(order);
 
-			// Odejmij stany magazynowe:
 			foreach (var item in order.OrderItems)
 			{
 				var product = await _context.Products.FindAsync(item.ProductId);
@@ -172,9 +172,7 @@ namespace PunktWeterynaryjny.Controllers
 
 			await _context.SaveChangesAsync();
 
-			// Wyczyść koszyk
 			HttpContext.Session.SetObject("Cart", new List<CartItem>());
-
 			TempData["SuccessMessage"] = "Zamówienie zostało złożone pomyślnie!";
 			return RedirectToAction("Index");
 		}

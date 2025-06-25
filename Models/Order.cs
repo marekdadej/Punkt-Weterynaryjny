@@ -23,5 +23,8 @@ namespace PunktWeterynaryjny.Models
         public string ContactPhone { get; set; } = string.Empty;
 
         public List<OrderItem> OrderItems { get; set; } = new();
-    }
+
+		public PaymentMethod PaymentMethod { get; set; }
+
+	}
 }

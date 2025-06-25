@@ -23,15 +23,15 @@
             </tr>
         </thead>
         <tbody>
-        @foreach (var item in Model.CartItems)
-        {
-            <tr>
-                <td>@item.ProductName</td>
-                <td>@item.Quantity</td>
-                <td>@item.Price zł</td>
-                <td>@(item.Quantity * item.Price) zł</td>
-            </tr>
-        }
+            @foreach (var item in Model.CartItems)
+            {
+                <tr>
+                    <td>@item.ProductName</td>
+                    <td>@item.Quantity</td>
+                    <td>@item.Price zł</td>
+                    <td>@(item.Quantity* item.Price) zł</td>
+                </tr>
+            }
         </tbody>
         <tfoot>
             <tr>
@@ -49,11 +49,22 @@
             <input asp-for="ShippingAddress" class="form-control" />
             <span asp-validation-for="ShippingAddress" class="text-danger"></span>
         </div>
+
         <div class="form-group mt-3">
             <label asp-for="ContactPhone"></label>
             <input asp-for="ContactPhone" class="form-control" />
             <span asp-validation-for="ContactPhone" class="text-danger"></span>
         </div>
+
+        <div class="form-group mt-3">
+            <label asp-for="SelectedPaymentMethod">Metoda płatności</label>
+            <select asp-for="SelectedPaymentMethod" class="form-select"
+                    asp-items="Html.GetEnumSelectList<PunktWeterynaryjny.Models.PaymentMethod>()">
+                <option value="">-- Wybierz metodę --</option>
+            </select>
+            <span asp-validation-for="SelectedPaymentMethod" class="text-danger"></span>
+        </div>
+
         <button type="submit" class="btn btn-success mt-4">Złóż zamówienie</button>
     </form>
 }

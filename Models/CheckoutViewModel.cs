@@ -15,5 +15,10 @@ namespace PunktWeterynaryjny.Models
         [Display(Name = "Telefon kontaktowy")]
         [Phone(ErrorMessage = "Nieprawidłowy numer telefonu.")]
         public string ContactPhone { get; set; } = string.Empty;
-    }
+
+		[Required(ErrorMessage = "Wybierz metodę płatności.")]
+		[Display(Name = "Metoda płatności")]
+		public PaymentMethod SelectedPaymentMethod { get; set; }
+
+	}
 }
