@@ -249,5 +249,44 @@ namespace PunktWeterynaryjny.Controllers
 			TempData["SuccessMessage"] = "Produkt został usunięty.";
 			return RedirectToAction("Index"); // lub inna akcja listująca
 		}
+
+		[Authorize]
+		[HttpGet]
+		public async Task<IActionResult> ReturnOrder(int id)
+		{
+			var order = await _context.Orders
+				.Include(o => o.OrderItems)
+				.FirstOrDefaultAsync(o => o.Id == id);
+
+			if (order == null || order.UserId != _userManager.GetUserId(User))
+				return NotFound();
+
+			return View(new ReturnRequest { OrderId = order.Id });
+		}
+
+		[Authorize]
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		public async Task<IActionResult> ReturnOrder(int id, string reason)
+		{
+			var userId = _userManager.GetUserId(User);
+			var order = await _context.Orders
+				.Include(o => o.OrderItems)
+				.FirstOrDefaultAsync(o => o.Id == id && o.UserId == userId);
+
+			if (order == null || order.Status == OrderStatus.Anulowane || order.Status == OrderStatus.Zwrot)
+			{
+				return NotFound();
+			}
+
+			order.Status = OrderStatus.Zwrot;
+
+			order.ReturnReason = reason;
+
+			await _context.SaveChangesAsync();
+
+			TempData["SuccessMessage"] = "Zgłoszenie zwrotu zostało zapisane. Oczekuj na kontakt.";
+			return RedirectToAction("MyOrders", "Orders");
+		}
 	}
 }

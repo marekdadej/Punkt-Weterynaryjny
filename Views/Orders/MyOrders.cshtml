@@ -30,6 +30,13 @@
                         </form>
 
                     }
+                    @if (order.Status == OrderStatus.Zrealizowane || order.Status == OrderStatus.Dostarczone)
+                    {
+                        <a asp-controller="Shop" asp-action="ReturnOrder" asp-route-id="@order.OrderId" class="btn btn-outline-warning btn-sm mt-1">
+                            Zgłoś zwrot
+                        </a>
+                    }
+
                     <a asp-action="OrderDetails" asp-route-id="@order.OrderId" class="btn btn-info btn-sm">Szczegóły</a>
                 </td>
             </tr>

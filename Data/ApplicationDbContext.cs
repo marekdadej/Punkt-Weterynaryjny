@@ -18,6 +18,8 @@ namespace PunktWeterynaryjny.Data
         public DbSet<OrderItem> OrderItems { get; set; }
         public DbSet<Visit> Visits { get; set; }  
         public DbSet<TreatmentPlan> TreatmentPlans { get; set; }
+		public DbSet<ReturnRequest> ReturnRequests { get; set; }
+
 		protected override void OnModelCreating(ModelBuilder builder)
 		{
 			base.OnModelCreating(builder);

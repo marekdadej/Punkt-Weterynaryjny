@@ -119,5 +119,27 @@ namespace PunktWeterynaryjny.Controllers
 			return View(order); // View z modelem typu Order
 		}
 
+		[Authorize(Roles = "Pracownik")]
+		public async Task<IActionResult> Returns()
+		{
+			var orders = await _context.Orders
+				.Where(o => o.Status == OrderStatus.Zwrot)
+				.Include(o => o.User)
+				.ToListAsync();
+
+			var viewModels = orders.Select(o => new OrderViewModel
+			{
+				OrderId = o.Id,
+				OrderDate = o.OrderDate,
+				Status = o.Status,
+				ReturnReason = o.ReturnReason,
+				ClientEmail = o.User?.Email ?? "Nieznany"
+			}).ToList();
+
+
+
+			return View("Returns", viewModels);
+		}
+
 	}
 }

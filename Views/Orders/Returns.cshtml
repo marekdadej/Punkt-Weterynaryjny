@@ -1,0 +1,41 @@
+﻿@model IEnumerable<OrderViewModel>
+@{
+    ViewData["Title"] = "Zwroty zamówień";
+}
+
+<h2>Zwroty zamówień</h2>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">Brak zgłoszonych zwrotów.</div>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Numer zamówienia</th>
+                <th>Klient</th>
+                <th>Data złożenia</th>
+                <th>Status</th>
+                <th>Zamówienie</th>
+                <th>Powód zwrotu</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var order in Model)
+            {
+                <tr>
+                    <td>@order.OrderId</td>
+                    <td>@order.ClientEmail</td>
+                    <td>@order.OrderDate.ToShortDateString()</td>
+                    <td>@order.Status</td>
+                    <td>
+                        <a asp-action="OrderDetails" asp-route-id="@order.OrderId" class="btn btn-info btn-sm">Zobacz</a>
+                    </td>
+                    <td>@order.ReturnReason</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

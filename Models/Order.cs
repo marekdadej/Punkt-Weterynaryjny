@@ -25,6 +25,7 @@ namespace PunktWeterynaryjny.Models
         public List<OrderItem> OrderItems { get; set; } = new();
 
 		public PaymentMethod PaymentMethod { get; set; }
+		public string? ReturnReason { get; set; }
 
 	}
 }

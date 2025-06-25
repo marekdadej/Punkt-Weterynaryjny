@@ -1,0 +1,23 @@
+﻿@model ReturnRequest
+@{
+    ViewData["Title"] = "Zgłoś reklamację";
+}
+
+<h2>Zgłoszenie reklamacji</h2>
+
+<form asp-action="ReturnOrder" method="post">
+    <input type="hidden" asp-for="OrderId" />
+
+    <div class="form-group">
+        <label asp-for="Reason">Powód reklamacji:</label>
+        <textarea asp-for="Reason" class="form-control" rows="4"></textarea>
+        <span asp-validation-for="Reason" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-danger mt-3">Zgłoś</button>
+    <a asp-controller="Orders" asp-action="MyOrders" class="btn btn-secondary mt-3">Anuluj</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

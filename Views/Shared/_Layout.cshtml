@@ -41,6 +41,10 @@
                                 <li class="nav-item mb-2 mb-lg-0">
                                     <a class="nav-link" asp-controller="Shop" asp-action="Index">Zarządzanie produktami</a>
                                 </li>
+                                <li class="nav-item mb-2 mb-lg-0">
+                                    <a class="nav-link text-dark" asp-controller="Orders" asp-action="Returns">Zwroty</a>
+                                </li>
+
                             }
                             else if (User.IsInRole("Właściciel"))
                             {
@@ -59,6 +63,10 @@
                                 <li class="nav-item mb-2 mb-lg-0">
                                     <a class="nav-link text-dark" asp-controller="Owner" asp-action="Dashboard">Statystyki</a>
                                 </li>
+                                <li class="nav-item mb-2 mb-lg-0">
+                                    <a class="nav-link text-dark" asp-controller="Orders" asp-action="Returns">Zwroty</a>
+                                </li>
+
                             }
                             else
                             {
@@ -66,7 +74,7 @@
                                     <a class="nav-link text-dark" asp-controller="Animals" asp-action="MyPets">Moje zwierzęta</a>
                                 </li>
                                 <li class="nav-item mb-2 mb-lg-0">
-                                    <a class="nav-link text-dark" asp-controller="Shop" asp-action="Index">Kup leki</a>
+                                    <a class="nav-link text-dark" asp-controller="Shop" asp-action="Index">Produkty</a>
                                 </li>
                                 <li class="nav-item mb-2 mb-lg-0">
                                     <a class="nav-link text-dark" asp-controller="Orders" asp-action="MyOrders">Moje zamówienia</a>
@@ -93,7 +101,7 @@
                                 <a class="nav-link text-dark" asp-controller="Account" asp-action="Register">Zarejestruj się</a>
                             </li>
                             <li class="nav-item mb-2 mb-lg-0">
-                                <a class="nav-link text-dark" asp-controller="Shop" asp-action="Index">Kup leki</a>
+                                <a class="nav-link text-dark" asp-controller="Shop" asp-action="Index">Produkty</a>
                             </li>
                             <li class="nav-item mb-2 mb-lg-0">
                                 <a class="nav-link text-dark" asp-controller="Shop" asp-action="Cart">Koszyk</a>

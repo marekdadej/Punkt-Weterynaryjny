@@ -4,8 +4,10 @@ namespace PunktWeterynaryjny.Models
     {
         Przyjęte,
         W_Realizacji,
+        Zrealizowane,
         W_Drodze,
         Dostarczone,
+        Zwrot,
         Anulowane
     }
 }
